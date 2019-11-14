@@ -51,9 +51,7 @@ export default class CoreNavigation extends React.PureComponent<{}, CoreNavigati
                             </TopAppBarSection>
                         </TopAppBarRow>
                     </TopAppBar>
-                    <TopAppBarFixedAdjust>
-                        <h1>Content bitch</h1>
-                    </TopAppBarFixedAdjust>
+                    <TopAppBarFixedAdjust>{this.props.children}</TopAppBarFixedAdjust>
                 </DrawerAppContent>
             </Fragment>
         );
