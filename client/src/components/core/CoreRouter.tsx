@@ -1,12 +1,23 @@
 import React from 'react';
 import {Route, Switch} from "react-router-dom";
-import HomePage from "../../pages/HomePage";
+import Loadable from "react-loadable";
+
+const LazyHomePage = Loadable({
+    loader: () => import("../../pages/HomePage"),
+    loading: () => <h1>Loading...</h1>
+});
+
+const LazyNotFound = Loadable({
+    loader: () => import("../../pages/NotFoundPage"),
+    loading: () => <h1>Loading...</h1>
+});
 
 export default class CoreRouter extends React.PureComponent {
     render = () => {
         return (
             <Switch>
-                <Route path={"/"} component={HomePage}/>
+                <Route path={"/"} component={LazyHomePage}/>
+                <Route component={LazyNotFound}/>
             </Switch>
         );
     }
