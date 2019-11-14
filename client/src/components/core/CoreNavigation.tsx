@@ -37,7 +37,7 @@ export default class CoreNavigation extends React.PureComponent<{}, CoreNavigati
                                 <TopAppBarIcon navIcon tabIndex={0}>
                                     <MaterialIcon hasRipple icon='menu' onClick={this.switchDrawer}/>
                                 </TopAppBarIcon>
-                                <TopAppBarTitle>COLUNCO</TopAppBarTitle>
+                                <TopAppBarTitle>COLUNCOL</TopAppBarTitle>
                             </TopAppBarSection>
                             <TopAppBarSection align='end' role='toolbar'>
                                 <TopAppBarIcon actionItem tabIndex={0}>
