@@ -1,13 +1,9 @@
 import React from 'react';
 import './App.scss';
-import Button from '@material/react-button'
+import CoreNavigation from "./components/core/CoreNavigation";
 
 export default class App extends React.Component {
     render = () => {
-        return (
-            <div className="App">
-                <Button>Hola Mundo!</Button>
-            </div>
-        );
+        return <CoreNavigation/>;
     }
 }
