@@ -1,21 +1,22 @@
 import React, {Fragment} from 'react';
-import Drawer, {DrawerAppContent, DrawerContent} from "@material/react-drawer";
-import TopAppBar, {
-    TopAppBarFixedAdjust,
-    TopAppBarIcon,
-    TopAppBarRow,
-    TopAppBarSection,
-    TopAppBarTitle
-} from "@material/react-top-app-bar";
-import MaterialIcon from "@material/react-material-icon";
-import Button from "@material/react-button";
+import Drawer, {DrawerAppContent} from "@material/react-drawer";
+import {TopAppBarFixedAdjust} from "@material/react-top-app-bar";
+import {connect} from "react-redux";
+import CoreNavigationHeader from "./CoreNavigationHeader";
+import CoreNavigationContent from "./CoreNavigationContent";
+import CoreTopAppBar from "./CoreTopAppBar";
+
+interface CoreNavigationProps {
+    loggedIn: boolean,
+    username: string | null
+}
 
 interface CoreNavigationState {
     open: boolean
 }
 
-export default class CoreNavigation extends React.PureComponent<{}, CoreNavigationState> {
-    constructor(props: {}) {
+class CoreNavigation extends React.PureComponent<CoreNavigationProps, CoreNavigationState> {
+    constructor(props: CoreNavigationProps) {
         super(props);
         this.state = {open: false};
     }
@@ -23,37 +24,27 @@ export default class CoreNavigation extends React.PureComponent<{}, CoreNavigati
     switchDrawer = () => this.setState({open: !this.state.open});
 
     render = () => {
+        const {children, loggedIn, username} = this.props;
+        const {open} = this.state;
         return (
             <Fragment>
-                <Drawer modal open={this.state.open} onClose={this.switchDrawer}>
-                    <DrawerContent>
-                        <Button raised>Click me!</Button>
-                    </DrawerContent>
+                <Drawer modal open={open} onClose={this.switchDrawer}>
+                    <CoreNavigationHeader loggedIn={loggedIn} username={username}/>
+                    <hr className={"mdc-list-divider"}/>
+                    <CoreNavigationContent loggedIn={loggedIn}/>
                 </Drawer>
                 <DrawerAppContent>
-                    <TopAppBar>
-                        <TopAppBarRow>
-                            <TopAppBarSection align='start'>
-                                <TopAppBarIcon navIcon tabIndex={0}>
-                                    <MaterialIcon hasRipple icon='menu' onClick={this.switchDrawer}/>
-                                </TopAppBarIcon>
-                                <TopAppBarTitle>COLUNCOL</TopAppBarTitle>
-                            </TopAppBarSection>
-                            <TopAppBarSection align='end' role='toolbar'>
-                                <TopAppBarIcon actionItem tabIndex={0}>
-                                    <MaterialIcon
-                                        aria-label="print page"
-                                        hasRipple
-                                        icon='print'
-                                        onClick={() => console.log('print')}
-                                    />
-                                </TopAppBarIcon>
-                            </TopAppBarSection>
-                        </TopAppBarRow>
-                    </TopAppBar>
-                    <TopAppBarFixedAdjust>{this.props.children}</TopAppBarFixedAdjust>
+                    <CoreTopAppBar onHamburgerClick={this.switchDrawer}/>
+                    <TopAppBarFixedAdjust>{children}</TopAppBarFixedAdjust>
                 </DrawerAppContent>
             </Fragment>
         );
     }
 }
+
+const mapDispatchToProps = (state: any): CoreNavigationProps => ({
+    loggedIn: state.auth.loggedIn,
+    username: state.auth.username
+});
+
+export default connect(mapDispatchToProps)(CoreNavigation);
