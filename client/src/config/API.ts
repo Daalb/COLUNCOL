@@ -12,6 +12,10 @@ const BASE_COOKIE_CONFIG = {expires: 3};
 const url = (...dirs: string[]): string => (`${BASE_URL}/${dirs.join("/")}`);
 const withQueryParams = (url: string, query_params: Hash): string => (`${url}?${Object.keys(query_params).map((k) => (`${k}=${query_params[k]}`)).join("&")}`);
 
+axios.get(BASE_URL + "/connectionTest.php").then(
+    (v) => console.log(v.data),
+);
+
 const startApp = async (): Promise<APIResponse> => {
     const token = cookies.get("token");
     const username = cookies.get("username");
