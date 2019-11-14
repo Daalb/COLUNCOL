@@ -6,7 +6,7 @@ interface CoreNavigationContentProps {
 }
 
 export default class CoreNavigationContent extends React.Component<CoreNavigationContentProps> {
-    shouldComponentUpdate = (nextProps: Readonly<CoreNavigationContentProps>): boolean => this.props.loggedIn != nextProps.loggedIn;
+    shouldComponentUpdate = (nextProps: Readonly<CoreNavigationContentProps>): boolean => this.props.loggedIn !== nextProps.loggedIn;
 
     render = () => {
         if (!this.props.loggedIn) return (

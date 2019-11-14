@@ -17,11 +17,12 @@ const initialState: AuthState = {
 };
 
 const authReducer = (state: AuthState = initialState, action: Action): AuthState => {
+    console.log(state);
     switch (action.type) {
         case LOGIN:
-            return {...state, username: action.payload.username};
+            return {...state, loggedIn: true, username: action.payload.username};
         case LOGOUT:
-            return {...state, username: null};
+            return {...state, loggedIn: false, username: null};
         default:
             return state;
     }

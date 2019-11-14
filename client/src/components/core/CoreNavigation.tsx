@@ -5,23 +5,38 @@ import {connect} from "react-redux";
 import CoreNavigationHeader from "./CoreNavigationHeader";
 import CoreNavigationContent from "./CoreNavigationContent";
 import CoreTopAppBar from "./CoreTopAppBar";
+import {loginAction, logoutAction} from "../../config/authReducer";
 
 interface CoreNavigationProps {
     loggedIn: boolean,
-    username: string | null
+    username: string | null,
+    login: () => void,
+    logout: () => void
 }
 
 interface CoreNavigationState {
     open: boolean
 }
 
-class CoreNavigation extends React.PureComponent<CoreNavigationProps, CoreNavigationState> {
+class CoreNavigation extends React.Component<CoreNavigationProps, CoreNavigationState> {
     constructor(props: CoreNavigationProps) {
         super(props);
         this.state = {open: false};
     }
 
+    shouldComponentUpdate = (nextProps: Readonly<CoreNavigationProps>, nextState: Readonly<CoreNavigationState>, nextContext: any): boolean => {
+        return this.props.loggedIn !== nextProps.loggedIn || this.state.open !== nextState.open;
+    };
+
     switchDrawer = () => this.setState({open: !this.state.open});
+
+    login = () => {
+        this.props.login();
+    };
+
+    logout = () => {
+        this.props.logout();
+    };
 
     render = () => {
         const {children, loggedIn, username} = this.props;
@@ -29,7 +44,8 @@ class CoreNavigation extends React.PureComponent<CoreNavigationProps, CoreNaviga
         return (
             <Fragment>
                 <Drawer modal open={open} onClose={this.switchDrawer}>
-                    <CoreNavigationHeader loggedIn={loggedIn} username={username}/>
+                    <CoreNavigationHeader onLoginClick={this.login} onLogoutClick={this.logout} loggedIn={loggedIn}
+                                          username={username}/>
                     <hr className={"mdc-list-divider"}/>
                     <CoreNavigationContent loggedIn={loggedIn}/>
                 </Drawer>
@@ -42,9 +58,14 @@ class CoreNavigation extends React.PureComponent<CoreNavigationProps, CoreNaviga
     }
 }
 
-const mapDispatchToProps = (state: any): CoreNavigationProps => ({
+const mapStateToProps = (state: any) => ({
     loggedIn: state.auth.loggedIn,
     username: state.auth.username
 });
 
-export default connect(mapDispatchToProps)(CoreNavigation);
+const mapDispatchToProps = (dispatch: (v: any) => any) => ({
+    login: () => dispatch(loginAction("IE Jesus Maestro")),
+    logout: () => dispatch(logoutAction())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CoreNavigation);
