@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="76a4d036-4ae1-42d6-b475-d463e9896f5b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/core/CoreNavigationDrawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/CoreNavigationDrawer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/core/CoreNavigationHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/CoreNavigationHeader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/core/CoreRouter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/CoreRouter.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/API.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/API.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage.tsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +39,17 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.start">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -58,6 +62,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.build" />
         <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
@@ -74,7 +79,7 @@
       <updated>1573757010089</updated>
       <workItem from="1573757015996" duration="6120000" />
       <workItem from="1573763770786" duration="6597000" />
-      <workItem from="1573792360878" duration="8576000" />
+      <workItem from="1573792360878" duration="8832000" />
     </task>
     <servers />
   </component>
