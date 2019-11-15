@@ -5,7 +5,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/core/CoreNavigationDrawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/CoreNavigationDrawer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/CoreNavigationHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/CoreNavigationHeader.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/core/CoreRouter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/CoreRouter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/API.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/API.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage.tsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -72,7 +74,7 @@
       <updated>1573757010089</updated>
       <workItem from="1573757015996" duration="6120000" />
       <workItem from="1573763770786" duration="6597000" />
-      <workItem from="1573792360878" duration="4581000" />
+      <workItem from="1573792360878" duration="8576000" />
     </task>
     <servers />
   </component>

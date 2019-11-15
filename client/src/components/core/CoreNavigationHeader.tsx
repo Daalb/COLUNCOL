@@ -1,25 +1,32 @@
 import React, {Fragment} from "react";
 import {Button, Typography} from "@material-ui/core";
+import {Link} from "react-router-dom";
+import {APILogout} from "../../config/API";
 
 type CoreNavigationHeaderProps = {
     loggedIn: boolean,
     username: string,
-    loginClick: () => void,
-    logoutClick: () => void
+    onLogout: () => void
 }
 
 export default class CoreNavigationHeader extends React.Component<CoreNavigationHeaderProps> {
     shouldComponentUpdate = (nextProps: Readonly<CoreNavigationHeaderProps>): boolean => this.props.loggedIn !== nextProps.loggedIn;
 
+    logoutClick = () => {
+        this.props.onLogout();
+        APILogout();
+    };
+
     render = () => {
-        const {loggedIn, username, loginClick, logoutClick} = this.props;
+        const {loggedIn, username} = this.props;
         if (loggedIn) return (
             <Fragment>
-                <Typography variant={"h5"}>{username}</Typography>
-                <Button color={"secondary"} onClick={logoutClick}>cerrar sesion</Button>
+                <Typography className={"header-username"} variant={"h6"}>{username}</Typography>
+                <Button component={Link} color={"secondary"} onClick={this.logoutClick} to={"/"}>
+                    cerrar sesion
+                </Button>
             </Fragment>
-        ); else return (
-            <Button color={"primary"} onClick={loginClick}>iniciar sesion</Button>
         );
+        return <Button component={Link} color={"primary"} to={"/login"}>iniciar sesion</Button>;
     }
 };

@@ -2,34 +2,25 @@ import React from "react";
 import {Divider, Drawer} from "@material-ui/core";
 import CoreNavigationHeader from "./CoreNavigationHeader";
 import {connect} from "react-redux";
-import {loginAction, logoutAction} from "../../config/authReducer";
+import {logoutAction} from "../../config/authReducer";
 import CoreNavigationContent from "./CoreNavigationContent";
 
 type ReduxProps = Partial<{
     loggedIn: boolean,
     username: string,
-    onLogin: () => void,
     onLogout: () => void
 }>;
 
 type CoreNavigationDrawerProps = {} & ReduxProps;
 
 class CoreNavigationDrawer extends React.Component<CoreNavigationDrawerProps> {
-    loginClick = () => {
-        const {onLogin} = this.props;
-        if (onLogin) onLogin();
-    };
-    logoutClick = () => {
-        const {onLogout} = this.props;
-        if (onLogout) onLogout();
-    };
+    shouldComponentUpdate = (nextProps: Readonly<CoreNavigationDrawerProps>): boolean => this.props.loggedIn !== nextProps.loggedIn;
 
     render = () => {
-        const {loggedIn = false, username = ""} = this.props;
+        const {loggedIn = false, username = "", onLogout} = this.props;
         return (
             <Drawer variant={"permanent"} anchor={"left"} className={"drawer"} classes={{paper: "paper"}}>
-                <CoreNavigationHeader loggedIn={loggedIn} username={username} loginClick={this.loginClick}
-                                      logoutClick={this.logoutClick}/>
+                <CoreNavigationHeader onLogout={onLogout!!} loggedIn={loggedIn} username={username}/>
                 <Divider/>
                 <CoreNavigationContent loggedIn={loggedIn}/>
             </Drawer>
@@ -43,7 +34,6 @@ const mapStateToProps = ({auth}: any): ReduxProps => ({
 });
 
 const mapDispatchToProps = (dispatch: (p: any) => void): ReduxProps => ({
-    onLogin: () => dispatch(loginAction("IE Jesus Maestro")),
     onLogout: () => dispatch(logoutAction())
 });
 

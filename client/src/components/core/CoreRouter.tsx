@@ -16,7 +16,9 @@ const LazyLoginPage = Loadable({
     loading: () => <LinearProgress/>
 });
 
-export default class CoreRouter extends React.PureComponent {
+export default class CoreRouter extends React.Component {
+    shouldComponentUpdate = (): boolean => false;
+
     render = () => {
         return (
             <Switch>

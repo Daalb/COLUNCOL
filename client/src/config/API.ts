@@ -6,7 +6,7 @@ type APIResponse =
     { okay: true, payload: Hash } |
     { okay: false, errors: Hash }
 
-const BASE_URL = "http://192.168.99.100:8101/api";
+const BASE_URL = window.location.href.includes("localhost") ? "http://192.168.99.101:8101/api" : "/api";
 const BASE_COOKIE_CONFIG = {expires: 3};
 
 const url = (...dirs: string[]): string => (`${BASE_URL}/${dirs.join("/")}`);
@@ -15,6 +15,8 @@ const withQueryParams = (url: string, query_params: Hash): string => (`${url}?${
 axios.get(BASE_URL + "/connectionTest.php").then(
     (v) => console.log(v.data),
 );
+
+const APILogout = () => cookies.remove("token", BASE_COOKIE_CONFIG);
 
 const startApp = async (): Promise<APIResponse> => {
     const token = cookies.get("token");
@@ -35,4 +37,4 @@ const startApp = async (): Promise<APIResponse> => {
     return {okay: false, errors: {}};
 };
 
-export {startApp};
+export {APILogout};
