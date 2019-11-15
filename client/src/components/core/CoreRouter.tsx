@@ -7,8 +7,12 @@ const LazyHomePage = Loadable({
     loader: () => import("../../pages/HomePage"),
     loading: () => <LinearProgress/>
 });
-const LazyNotFound = Loadable({
+const LazyNotFoundPage = Loadable({
     loader: () => import("../../pages/NotFoundPage"),
+    loading: () => <LinearProgress/>
+});
+const LazyLoginPage = Loadable({
+    loader: () => import("../../pages/LoginPage"),
     loading: () => <LinearProgress/>
 });
 
@@ -17,7 +21,8 @@ export default class CoreRouter extends React.PureComponent {
         return (
             <Switch>
                 <Route exact path={"/"} component={LazyHomePage}/>
-                <Route component={LazyNotFound}/>
+                <Route path={"/login"} component={LazyLoginPage}/>
+                <Route component={LazyNotFoundPage}/>
             </Switch>
         );
     }

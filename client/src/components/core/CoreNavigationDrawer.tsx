@@ -1,9 +1,9 @@
 import React from "react";
-import {Divider, Drawer, List, ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
-import {Apartment, AttachMoney, Book, Face, Person} from '@material-ui/icons';
+import {Divider, Drawer} from "@material-ui/core";
 import CoreNavigationHeader from "./CoreNavigationHeader";
 import {connect} from "react-redux";
 import {loginAction, logoutAction} from "../../config/authReducer";
+import CoreNavigationContent from "./CoreNavigationContent";
 
 type ReduxProps = Partial<{
     loggedIn: boolean,
@@ -25,34 +25,13 @@ class CoreNavigationDrawer extends React.Component<CoreNavigationDrawerProps> {
     };
 
     render = () => {
-        const {loggedIn, username} = this.props;
+        const {loggedIn = false, username = ""} = this.props;
         return (
             <Drawer variant={"permanent"} anchor={"left"} className={"drawer"} classes={{paper: "paper"}}>
-                <CoreNavigationHeader loggedIn={loggedIn!!} username={username!!} loginClick={this.loginClick}
+                <CoreNavigationHeader loggedIn={loggedIn} username={username} loginClick={this.loginClick}
                                       logoutClick={this.logoutClick}/>
                 <Divider/>
-                <List>
-                    <ListItem button>
-                        <ListItemIcon><Person/></ListItemIcon>
-                        <ListItemText primary={"Profesores"}/>
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemIcon><Face/></ListItemIcon>
-                        <ListItemText primary={"Estudiantes"}/>
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemIcon><Book/></ListItemIcon>
-                        <ListItemText primary={"Asignaturas"}/>
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemIcon><AttachMoney/></ListItemIcon>
-                        <ListItemText primary={"Finanzas"}/>
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemIcon><Apartment/></ListItemIcon>
-                        <ListItemText primary={"R. Físicos"}/>
-                    </ListItem>
-                </List>
+                <CoreNavigationContent loggedIn={loggedIn}/>
             </Drawer>
         );
     }
