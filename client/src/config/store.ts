@@ -1,4 +1,5 @@
 import {action, observable} from "mobx";
+import {Component} from "react";
 
 type AuthInfo = {
     logged: boolean,
@@ -21,5 +22,11 @@ class Store {
     logout = () => this.auth = {username: "", logged: false, admin: false};
 }
 
+type StoreType = typeof store;
+
+class WithStore<P = {}, S = {}> extends Component<P, S> {
+    store = (s: Readonly<P> = this.props): StoreType => (s as any).store as StoreType;
+}
+
 const store = new Store();
-export default store;
+export {store, WithStore};

@@ -3,19 +3,17 @@ import {Divider, Drawer} from "@material-ui/core";
 import CoreNavigationHeader from "./CoreNavigationHeader";
 import CoreNavigationContent from "./CoreNavigationContent";
 import {inject, observer} from "mobx-react";
-import store from "../../config/store";
-
-type CoreNavigationDrawerProps = { store: typeof store };
+import {WithStore} from "../../config/store"
 
 @inject("store")
 @observer
-export default class CoreNavigationDrawer extends React.Component<CoreNavigationDrawerProps> {
-    shouldComponentUpdate = (nextProps: Readonly<CoreNavigationDrawerProps>): boolean =>
-        this.props.store.auth.logged !== nextProps.store.auth.logged;
+export default class CoreNavigationDrawer extends WithStore {
+    shouldComponentUpdate = (nextProps: {}): boolean => this.store(nextProps).auth.logged !== this.store().auth.logged;
 
     render = () => {
-        const {logged, username} = this.props.store.auth;
-        const {logout} = this.props.store;
+        const store = this.store();
+        const {logged, username} = store.auth;
+        const {logout} = store;
         return (
             <Drawer variant={"permanent"} anchor={"left"} className={"drawer"} classes={{paper: "paper"}}>
                 <CoreNavigationHeader onLogout={logout} loggedIn={logged} username={username}/>
