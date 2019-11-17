@@ -1,40 +1,27 @@
 import React from "react";
 import {Divider, Drawer} from "@material-ui/core";
 import CoreNavigationHeader from "./CoreNavigationHeader";
-import {connect} from "react-redux";
-import {logoutAction} from "../../config/authReducer";
 import CoreNavigationContent from "./CoreNavigationContent";
+import {inject, observer} from "mobx-react";
+import store from "../../config/store";
 
-type ReduxProps = Partial<{
-    loggedIn: boolean,
-    username: string,
-    onLogout: () => void
-}>;
+type CoreNavigationDrawerProps = { store: typeof store };
 
-type CoreNavigationDrawerProps = {} & ReduxProps;
-
-class CoreNavigationDrawer extends React.Component<CoreNavigationDrawerProps> {
-    shouldComponentUpdate = (nextProps: Readonly<CoreNavigationDrawerProps>): boolean => this.props.loggedIn !== nextProps.loggedIn;
+@inject("store")
+@observer
+export default class CoreNavigationDrawer extends React.Component<CoreNavigationDrawerProps> {
+    shouldComponentUpdate = (nextProps: Readonly<CoreNavigationDrawerProps>): boolean =>
+        this.props.store.auth.logged !== nextProps.store.auth.logged;
 
     render = () => {
-        const {loggedIn = false, username = "", onLogout} = this.props;
+        const {logged, username} = this.props.store.auth;
+        const {logout} = this.props.store;
         return (
             <Drawer variant={"permanent"} anchor={"left"} className={"drawer"} classes={{paper: "paper"}}>
-                <CoreNavigationHeader onLogout={onLogout!!} loggedIn={loggedIn} username={username}/>
+                <CoreNavigationHeader onLogout={logout} loggedIn={logged} username={username}/>
                 <Divider/>
-                <CoreNavigationContent loggedIn={loggedIn}/>
+                <CoreNavigationContent loggedIn={logged}/>
             </Drawer>
         );
     }
 }
-
-const mapStateToProps = ({auth}: any): ReduxProps => ({
-    loggedIn: auth.loggedIn,
-    username: auth.username
-});
-
-const mapDispatchToProps = (dispatch: (p: any) => void): ReduxProps => ({
-    onLogout: () => dispatch(logoutAction())
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(CoreNavigationDrawer);

@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="29832acb-f01b-47f4-afd8-f0bb572ad020" name="Default Changelist" comment="" />
+    <list default="true" id="29832acb-f01b-47f4-afd8-f0bb572ad020" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../client/src/components/core/CoreNavigationContent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/components/core/CoreNavigationDrawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/core/CoreNavigationDrawer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/components/core/CoreRouter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/core/CoreRouter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/pages/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/pages/LoginPage.tsx" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +89,7 @@
       <option name="presentableId" value="Default" />
       <updated>1573756996112</updated>
       <workItem from="1573757004250" duration="2743000" />
+      <workItem from="1573797652193" duration="604000" />
     </task>
     <servers />
   </component>
@@ -93,7 +101,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

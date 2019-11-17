@@ -1,7 +1,8 @@
 import React, {Fragment} from "react";
-import {Button, Typography} from "@material-ui/core";
+import {Typography} from "@material-ui/core";
 import {Link} from "react-router-dom";
 import {APILogout} from "../../config/API";
+import {PureButton} from "../pure";
 
 type CoreNavigationHeaderProps = {
     loggedIn: boolean,
@@ -22,11 +23,11 @@ export default class CoreNavigationHeader extends React.Component<CoreNavigation
         if (loggedIn) return (
             <Fragment>
                 <Typography className={"header-username"} variant={"h6"}>{username}</Typography>
-                <Button component={Link} color={"secondary"} onClick={this.logoutClick} to={"/"}>
+                <PureButton component={Link} color={"secondary"} onClick={this.logoutClick} to={"/"}>
                     cerrar sesion
-                </Button>
+                </PureButton>
             </Fragment>
         );
-        return <Button component={Link} color={"primary"} to={"/login"}>iniciar sesion</Button>;
+        return <PureButton component={Link} color={"primary"} to={"/login"}>iniciar sesion</PureButton>;
     }
 };

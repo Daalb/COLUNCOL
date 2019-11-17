@@ -3,6 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="76a4d036-4ae1-42d6-b475-d463e9896f5b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/CoreAppBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/CoreAppBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/CoreNavigationDrawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/CoreNavigationDrawer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/CoreNavigationHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/CoreNavigationHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/CoreRouter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/CoreRouter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../php/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../php/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +35,7 @@
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
     <property name="ts.external.directory.path" value="C:\Users\josed\Documents\Projects\COLUNCOL\client\node_modules\typescript\lib" />
   </component>
   <component name="RunDashboard">
@@ -62,8 +73,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.build" />
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.build" />
       </list>
     </recent_temporary>
   </component>
@@ -79,7 +90,8 @@
       <updated>1573757010089</updated>
       <workItem from="1573757015996" duration="6120000" />
       <workItem from="1573763770786" duration="6597000" />
-      <workItem from="1573792360878" duration="8832000" />
+      <workItem from="1573792360878" duration="9435000" />
+      <workItem from="1573960672423" duration="9477000" />
     </task>
     <servers />
   </component>
