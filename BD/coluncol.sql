@@ -45,12 +45,24 @@ CREATE TABLE Telefono_Sede (
   FOREIGN KEY (num_sede) REFERENCES Sede (num_sede)
   ) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 
+CREATE TABLE Persona (
+  id_persona INT NOT NULL,
+  nombre1 VARCHAR(45) NOT NULL,
+  nombre2 VARCHAR(45) NOT NULL,
+  apellido1 VARCHAR(45) NOT NULL,
+  apellido2 VARCHAR(45) NOT NULL,
+  sexo VARCHAR(1) NOT NULL,
+  PRIMARY KEY (id_persona),
+  UNIQUE INDEX id_area_UNIQUE (id_persona ASC)
+)ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
+
 CREATE TABLE Docente (
   id_persona INT NOT NULL,
   nivel_de_est VARCHAR(45) NOT NULL,
   especialidad VARCHAR(45) NULL,
   rol VARCHAR(45) NULL,
   PRIMARY KEY (id_persona),
+  FOREIGN KEY (id_persona) REFERENCES Persona (id_persona),
   UNIQUE INDEX id_persona_UNIQUE (id_persona ASC)
   ) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 
