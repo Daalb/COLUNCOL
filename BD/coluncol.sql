@@ -118,17 +118,6 @@ CREATE TABLE Adscrito_a (
   FOREIGN KEY (id_profesor) REFERENCES Docente (id_persona)
 )ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 
-CREATE TABLE Persona (
-  id_persona INT NOT NULL,
-  nombre1 VARCHAR(45) NOT NULL,
-  nombre2 VARCHAR(45) NOT NULL,
-  apellido1 VARCHAR(45) NOT NULL,
-  apellido2 VARCHAR(45) NOT NULL,
-  sexo VARCHAR(1) NOT NULL,
-  PRIMARY KEY (id_persona),
-  UNIQUE INDEX id_area_UNIQUE (id_persona ASC)
-)ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
-
 CREATE TABLE Col_Per(
   id_colegio INT NOT NULL,
   id_persona INT NOT NULL,
