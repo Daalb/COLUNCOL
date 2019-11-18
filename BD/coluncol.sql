@@ -1,5 +1,5 @@
 #CREATE SCHEMA `new_schema` ;
-use temporal; 
+use test_db; 
 
 CREATE TABLE Registro_Colegio(
   id_Registro INT NOT NULL,
@@ -60,7 +60,7 @@ CREATE TABLE Do_Co (
   id_colegio INT NOT NULL,
   PRIMARY KEY (id_docente, id_colegio),
   FOREIGN KEY (id_docente) REFERENCES Docente (id_persona),
-  FOREIGN KEY (id_colegio) REFERENCES temporal.Colegio (id_colegio)
+  FOREIGN KEY (id_colegio) REFERENCES Colegio (id_colegio)
 )ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 
 CREATE TABLE Area(
@@ -144,7 +144,6 @@ CREATE TABLE Empleado (
   FOREIGN KEY (num_cuenta) REFERENCES Cuenta_Bancaria (num_cuenta)
 )ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 
-
 CREATE TABLE Administrativo (
   id_persona INT NOT NULL,
   cargo VARCHAR(45) NOT NULL,
@@ -157,6 +156,29 @@ CREATE TABLE Otros_Empleados(
     PRIMARY KEY (id_persona)
 )ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
 
+CREATE TABLE Informacion_Medica(
+	id_reportemedico INT NOT NULL,
+    tipo_sangre VARCHAR(3) NOT NULL,
+    entidad_salud VARCHAR(45) NOT NULL,
+    PRIMARY KEY (id_reportemedico)
+)ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
+
+CREATE TABLE Condiciones_Medicas(
+	nombre VARCHAR(45) NOT NULL,
+    tipo VARCHAR(45) NOT NULL,
+    PRIMARY KEY (nombre,tipo)
+)ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
+
+CREATE TABLE Im_Cm(
+	nombre_condicion VARCHAR(45) NOT NULL,
+    tipo_condicion VARCHAR(45) NOT NULL,
+    id_reportemedico_2 INT NOT NULL,
+    PRIMARY KEY(nombre_condicion,tipo_condicion,id_reportemedico_2),
+    FOREIGN KEY (nombre_condicion) REFERENCES Condiciones_Medicas(nombre),
+    FOREIGN KEY (tipo_condicion) REFERENCES Condiciones_Medicas(tipo),
+    FOREIGN KEY (id_reportemedico_2) REFERENCES Informacion_Medica(id_reportemedico)
+)ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
+
 CREATE TABLE Estudiante(
 	id_persona INT NOT NULL,
     fecha_nacimiento DATE NOT NULL,
@@ -166,29 +188,6 @@ CREATE TABLE Estudiante(
     FOREIGN KEY (id_reportemedico) REFERENCES Informacion_Medica (id_reportemedico),
     UNIQUE INDEX id_reportemedico_UNIQUE (id_reportemedico ASC),
     FOREIGN KEY (id_curso) REFERENCES Curso (id_curso)
-)ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
-
-CREATE TABLE Informacion_Medica(
-	id_reportemedico INT NOT NULL,
-    tipo_sangre VARCHAR(3) NOT NULL,
-    entidad_salud VARCHAR(45) NOT NULL,
-    PRIMARY KEY (id_reportemedico)
-)ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
-
-CREATE TABLE Im_Cm(
-	nombre VARCHAR(45) NOT NULL,
-    tipo VARCHAR(45) NOT NULL,
-    id_reportemedico INT NOT NULL,
-    PRIMARY KEY(nombre,tipo,id_reportemedico),
-    FOREIGN KEY (nombre) REFERENCES Condiciones_Medicas (nombre),
-    FOREIGN KEY (tipo) REFERENCES Condiciones_Medicas (tipo),
-    FOREIGN KEY (id_reportemedico) REFERENCES Informacion_Medica (id_reportemedico)
-)ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
-
-CREATE TABLE Condiciones_Medicas(
-	nombre VARCHAR(45) NOT NULL,
-    tipo VARCHAR(45) NOT NULL,
-    PRIMARY KEY (nombre,tipo)
 )ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
 
 CREATE TABLE Es_Dis(
