@@ -1,5 +1,15 @@
 use COLUNCOL; 
 
+DROP TABLE Planilla_Nota;
+DROP TABLE Ingresos_Varios;
+DROP TABLE Pension;
+DROP TABLE Tarifa;
+DROP TABLE Cambio_Colegio;
+DROP TABLE Horario;
+DROP TABLE Tel_Acudiente;
+DROP TABLE Acudiente;
+DROP TABLE Es_Dis;
+DROP TABLE Historial_Disciplina;
 DROP TABLE Estudiante;
 DROP TABLE Curso;
 DROP TABLE Salon;
