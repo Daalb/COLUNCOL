@@ -53,7 +53,6 @@ CREATE TABLE Docente (
   PRIMARY KEY (id_persona),
   UNIQUE INDEX id_persona_UNIQUE (id_persona ASC)
   ) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
-/*Por qué el id de profesor tiene nada más 3?*/
 
 CREATE TABLE Do_Co (
   id_docente INT NOT NULL,
@@ -215,16 +214,29 @@ CREATE TABLE Estudiante(
     FOREIGN KEY (id_curso) REFERENCES Curso (id_curso)
 )ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
 
+CREATE TABLE Historial_Disciplina(
+id_historial INT NOT NULL,
+id_colegio INT NOT NULL,
+fecha_inicio DATE NOT NULL,
+fecha_fin DATE,
+detalle VARCHAR(45) NOT NULL,
+PRIMARY KEY (id_historial)
+)ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
+
 CREATE TABLE Es_Dis(
-	id_estudiante INT NOT NULL,
-    id_colegio INT NOT NULL,
-    fecha_inicio DATE NOT NULL,
-    fecha_fin DATE,
-    detalle VARCHAR(45) NOT NULL,
-    PRIMARY KEY (id_estudiante,id_colegio,fecha_inicio,fecha_fin),
-    FOREIGN KEY (id_colegio) REFERENCES Historial_Disciplina (id_colegio),
-    FOREIGN KEY (fecha_inicio) REFERENCES Historial_Disciplina (fecha_inicio),
-    FOREIGN KEY (fecha_fin) REFERENCES Historial_Disciplina (fecha_fin)
+	id_estudiante INT NOT NULL ,
+    id_historial INT NOT NULL,
+    PRIMARY KEY (id_estudiante,id_historial),
+    FOREIGN KEY (id_historial) REFERENCES Historial_Disciplina (id_historial),
+    FOREIGN KEY (id_estudiante) REFERENCES Estudiante (id_persona)
+)ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
+
+CREATE TABLE Acudiente(
+	id_persona INT NOT NULL,
+    ocupacion VARCHAR(45) NOT NULL,
+    parentesco VARCHAR(30) NOT NULL,
+    PRIMARY KEY (id_persona),
+    UNIQUE INDEX id_persona_UNIQUE (id_persona ASC)
 )ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
 
 CREATE TABLE Tel_Acudiente(
@@ -256,15 +268,7 @@ CREATE TABLE Cambio_Colegio(
     id_colegio_nue INT NOT NULL,
     id_estudiante INT NOT NULL,
     fecha_ingreso DATE NOT NULL,
-    PRIMARY KEY (id_registro,id_colegio,id_colegio_nu,id_estudiante)
-)ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
-
-CREATE TABLE Acudiente(
-	id_persona INT NOT NULL,
-    ocupacion VARCHAR(45) NOT NULL,
-    parentesco VARCHAR(30) NOT NULL,
-    PRIMARY KEY (id_persona),
-    UNIQUE INDEX id_persona_UNIQUE (id_persona ASC)
+    PRIMARY KEY (id_registro,id_colegio,id_colegio_nue,id_estudiante)
 )ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
 
 CREATE TABLE Tarifa(
