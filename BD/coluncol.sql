@@ -1,5 +1,5 @@
 #CREATE SCHEMA `new_schema` ;
-use test_db; 
+use COLUNCOL; 
 
 CREATE TABLE Registro_Colegio(
   id_Registro INT NOT NULL,

@@ -1,4 +1,4 @@
-use test_db; 
+use COLUNCOL; 
 
 DROP TABLE Registro_Colegio;
 DROP TABLE Asg_Be ;
