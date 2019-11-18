@@ -56,13 +56,31 @@ CREATE TABLE Persona (
   UNIQUE INDEX id_area_UNIQUE (id_persona ASC)
 )ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 
+CREATE TABLE Cuenta_Bancaria (
+  num_cuenta INT NOT NULL,
+  entidad_bancaria VARCHAR(45) NOT NULL,
+  PRIMARY KEY (num_cuenta)
+)ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
+
+CREATE TABLE Empleado (
+  id_persona INT NOT NULL,
+  salario_bruto INT NOT NULL,
+  compensaciones INT NOT NULL,
+  prestaciones INT NOT NULL,
+  num_cuenta INT NOT NULL,
+  PRIMARY KEY (id_persona),
+  UNIQUE INDEX id_persona_UNIQUE (id_persona ASC),
+  FOREIGN KEY (num_cuenta) REFERENCES Cuenta_Bancaria (num_cuenta),
+  FOREIGN KEY (id_persona) REFERENCES Persona (id_persona)
+)ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
+
 CREATE TABLE Docente (
   id_persona INT NOT NULL,
   nivel_de_est VARCHAR(45) NOT NULL,
   especialidad VARCHAR(45) NULL,
   rol VARCHAR(45) NULL,
   PRIMARY KEY (id_persona),
-  FOREIGN KEY (id_persona) REFERENCES Persona (id_persona),
+  FOREIGN KEY (id_persona) REFERENCES Empleado (id_persona),
   UNIQUE INDEX id_persona_UNIQUE (id_persona ASC)
   ) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 
@@ -126,33 +144,18 @@ CREATE TABLE Col_Per(
   FOREIGN KEY (id_persona) REFERENCES Persona (id_persona)
 )ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 
-CREATE TABLE Cuenta_Bancaria (
-  num_cuenta INT NOT NULL,
-  entidad_bancaria VARCHAR(45) NOT NULL,
-  PRIMARY KEY (num_cuenta)
-)ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
-
-CREATE TABLE Empleado (
-  id_persona INT NOT NULL,
-  salario_bruto INT NOT NULL,
-  compensaciones INT NOT NULL,
-  prestaciones INT NOT NULL,
-  num_cuenta INT NOT NULL,
-  PRIMARY KEY (id_persona),
-  UNIQUE INDEX id_persona_UNIQUE (id_persona ASC),
-  FOREIGN KEY (num_cuenta) REFERENCES Cuenta_Bancaria (num_cuenta)
-)ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
-
 CREATE TABLE Administrativo (
   id_persona INT NOT NULL,
   cargo VARCHAR(45) NOT NULL,
-  PRIMARY KEY (id_persona)
+  PRIMARY KEY (id_persona),
+  FOREIGN KEY (id_persona) REFERENCES Empleado (id_persona)
 )ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 
 CREATE TABLE Otros_Empleados(
 	id_persona INT NOT NULL,
     cargo VARCHAR(45) NOT NULL,
-    PRIMARY KEY (id_persona)
+    PRIMARY KEY (id_persona),
+	FOREIGN KEY (id_persona) REFERENCES Empleado (id_persona)
 )ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
 
 CREATE TABLE Informacion_Medica(
@@ -212,7 +215,8 @@ CREATE TABLE Estudiante(
     PRIMARY KEY (id_persona),
     FOREIGN KEY (id_reportemedico) REFERENCES Informacion_Medica (id_reportemedico),
     UNIQUE INDEX id_reportemedico_UNIQUE (id_reportemedico ASC),
-    FOREIGN KEY (id_curso) REFERENCES Curso (id_curso)
+    FOREIGN KEY (id_curso) REFERENCES Curso (id_curso),
+	FOREIGN KEY (id_persona) REFERENCES Persona (id_persona)
 )ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
 
 CREATE TABLE Historial_Disciplina(
@@ -237,7 +241,8 @@ CREATE TABLE Acudiente(
     ocupacion VARCHAR(45) NOT NULL,
     parentesco VARCHAR(30) NOT NULL,
     PRIMARY KEY (id_persona),
-    UNIQUE INDEX id_persona_UNIQUE (id_persona ASC)
+    UNIQUE INDEX id_persona_UNIQUE (id_persona ASC),
+	FOREIGN KEY (id_persona) REFERENCES Persona (id_persona)
 )ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
 
 CREATE TABLE Tel_Acudiente(
