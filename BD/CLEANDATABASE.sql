@@ -1,6 +1,19 @@
 use COLUNCOL; 
 
-DROP TABLE Registro_Colegio;
+DROP TABLE Estudiante;
+DROP TABLE Curso;
+DROP TABLE Salon;
+DROP TABLE Grado;
+DROP TABLE Im_Cm;
+DROP TABLE Condiciones_Medicas;
+DROP TABLE Informacion_Medica;
+DROP TABLE Otros_Empleados;
+DROP TABLE Administrativo;
+DROP TABLE Empleado;
+DROP TABLE Cuenta_Bancaria;
+DROP TABLE Col_Per;
+DROP TABLE Persona;
+DROP TABLE Adscrito_a;
 DROP TABLE Asg_Be ;
 DROP TABLE Bloques_Educativos; 
 DROP TABLE Asignatura; 
@@ -10,7 +23,7 @@ DROP TABLE Docente ;
 DROP TABLE Telefono_Sede ;
 DROP TABLE Sede ;
 DROP TABLE Colegio;
-DROP TABLE Adscrito_a ;
+DROP TABLE Registro_Colegio;
 
 
 
