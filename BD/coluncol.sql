@@ -311,33 +311,11 @@ CREATE TABLE Ingresos_Varios(
     FOREIGN KEY (id_grado) REFERENCES Grado (id_grado)
 )ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
 
-CREATE TABLE Planilla_Nota(
-	id_colegio INT NOT NULL,
-    id_curso INT NOT NULL,
-    id_persona_docente INT NOT NULL,
-    id_asignatura INT NOT NULL,
-    num_nota INT NOT NULL,
-    nota FLOAT NOT NULL,
-    PRIMARY KEY (id_colegio,id_curso,id_persona_docente,id_asignatura,num_nota),
-	FOREIGN KEY (id_colegio) REFERENCES Colegio (id_colegio),
-    FOREIGN KEY (id_curso) REFERENCES Curso (id_curso),
-    FOREIGN KEY (id_asignatura) REFERENCES Asignatura (id_asignatura),
-    FOREIGN KEY (id_persona_docente) REFERENCES Docente (id_persona_docente)
-)ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
-
-CREATE TABLE Es_Dis(
-	id_estudiante INT NOT NULL ,
-    id_acudiente INT NOT NULL,
-    PRIMARY KEY (id_estudiante,id_acudiente),
-    FOREIGN KEY (id_acudiente) REFERENCES Acudiente (id_acudiente),
-    FOREIGN KEY (id_estudiante) REFERENCES Estudiante (id_persona)
-)ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
-
 CREATE TABLE Acu_ES(
 	id_acudiente INT NOT NULL,
 	id_estudiante INT NOT NULL ,
     PRIMARY KEY (id_estudiante,id_acudiente),
-    FOREIGN KEY (id_acudiente) REFERENCES Acudiente (id_acudiente),
+    FOREIGN KEY (id_acudiente) REFERENCES Acudiente (id_persona),
     FOREIGN KEY (id_estudiante) REFERENCES Estudiante (id_persona)
 )ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
 
@@ -346,7 +324,7 @@ CREATE TABLE Acu_Recoge_ES(
 	id_estudiante INT NOT NULL ,
     fecha DATETIME,
     PRIMARY KEY (id_estudiante,id_acudiente),
-    FOREIGN KEY (id_acudiente) REFERENCES Acudiente (id_acudiente),
+    FOREIGN KEY (id_acudiente) REFERENCES Acudiente (id_persona),
     FOREIGN KEY (id_estudiante) REFERENCES Estudiante (id_persona)
 )ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
 
@@ -371,7 +349,7 @@ CREATE TABLE Est_Cur(
     id_estudiante INT NOT NULL,
     PRIMARY KEY (id_curso,id_estudiante),
     FOREIGN KEY (id_curso) REFERENCES Curso (id_curso),
-    FOREIGN KEY (id_estudiante) REFERENCES Estudiante (id_estudiante)
+    FOREIGN KEY (id_estudiante) REFERENCES Estudiante (id_persona)
 )ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
 
 CREATE TABLE Col_Hor_Cur(
@@ -391,10 +369,25 @@ CREATE TABLE Asig_Col(
     id_asignatura INT NOT NULL,
     PRIMARY KEY (id_colegio,id_curso,id_persona_docente,id_asignatura),
     FOREIGN KEY (id_colegio) REFERENCES Colegio (id_colegio),
-    FOREIGN KEY (id_persona_docente) REFERENCES Docente (id_persona_docente),
+    FOREIGN KEY (id_persona_docente) REFERENCES Docente (id_persona),
     FOREIGN KEY (id_curso) REFERENCES Curso (id_curso),
     FOREIGN KEY (id_asignatura) REFERENCES Asignatura (id_asignatura)
 )ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
+
+CREATE TABLE Planilla_Nota(
+	id_colegio INT NOT NULL,
+    id_curso INT NOT NULL,
+    id_persona_docente INT NOT NULL,
+    id_asignatura INT NOT NULL,
+    num_nota INT NOT NULL,
+    nota FLOAT NOT NULL,
+    PRIMARY KEY (id_colegio,id_curso,id_persona_docente,id_asignatura,num_nota),
+	FOREIGN KEY (id_colegio) REFERENCES Colegio (id_colegio),
+    FOREIGN KEY (id_curso) REFERENCES Curso (id_curso),
+    FOREIGN KEY (id_asignatura) REFERENCES Asignatura (id_asignatura),
+    FOREIGN KEY (id_persona_docente) REFERENCES Docente (id_persona)
+)ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
+
 
 CREATE TABLE Historico_Nota(
 	id_persona_estudiante INT NOT NULL,
@@ -405,12 +398,12 @@ CREATE TABLE Historico_Nota(
     num_nota INT NOT NULL,
     fecha_modif DATE,
     PRIMARY KEY (id_persona_estudiante,id_colegio,id_curso,id_asignatura,id_persona_docente,num_nota),
+	#FOREIGN KEY (num_nota) REFERENCES Planilla_Nota (num_nota),
     FOREIGN KEY (id_persona_estudiante) REFERENCES Estudiante (id_persona),
     FOREIGN KEY (id_colegio) REFERENCES Planilla_Nota (id_colegio),
     FOREIGN KEY (id_curso) REFERENCES Planilla_Nota (id_curso),
     FOREIGN KEY (id_asignatura) REFERENCES Planilla_Nota (id_asignatura),
-    FOREIGN KEY (id_persona_docente) REFERENCES Planilla_Nota (id_persona_docente),
-    FOREIGN KEY (num_nota) REFERENCES Planilla_Nota (num_nota)
+    FOREIGN KEY (id_persona_docente) REFERENCES Planilla_Nota (id_persona_docente)
 )ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
 
 
