@@ -82,7 +82,6 @@ CREATE TABLE Asignatura (
   FOREIGN KEY (id_area) REFERENCES Area(id_area)
 )ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 
-
 CREATE TABLE Bloques_Educativos (
   id_slot INT (1) NOT NULL,
   hora_inicio time,
@@ -169,14 +168,33 @@ CREATE TABLE Condiciones_Medicas(
     PRIMARY KEY (nombre,tipo)
 )ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
 
-CREATE TABLE Im_Cm(
-	nombre_condicion VARCHAR(45) NOT NULL,
-    tipo_condicion VARCHAR(45) NOT NULL,
-    id_reportemedico_2 INT NOT NULL,
-    PRIMARY KEY(nombre_condicion,tipo_condicion,id_reportemedico_2),
-    FOREIGN KEY (nombre_condicion) REFERENCES Condiciones_Medicas(nombre),
-    FOREIGN KEY (tipo_condicion) REFERENCES Condiciones_Medicas(tipo),
-    FOREIGN KEY (id_reportemedico_2) REFERENCES Informacion_Medica(id_reportemedico)
+/*Aqui va la tabla QUE FALTA XD*/
+CREATE TABLE Grado(
+	id_grado INT NOT NULL,
+    nivel_institucional VARCHAR(45) NOT NULL,
+    PRIMARY KEY (id_grado)
+)ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
+
+CREATE TABLE Salon(
+	id_salon INT NOT NULL,
+    capacidad INT(2),
+    id_colegio INT NOT NULL,
+    PRIMARY KEY (id_salon),
+    FOREIGN KEY (id_colegio) REFERENCES Colegio (id_colegio),
+    UNIQUE INDEX id_salon_UNIQUE (id_salon ASC)
+)ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
+
+CREATE TABLE Curso(
+	id_curso INT NOT NULL,
+    num_estudiantes INT(2),
+    id_salon INT NOT NULL,
+    id_grado INT NOT NULL,
+    id_persona_docente INT NOT NULL,
+    PRIMARY KEY (id_curso),
+    FOREIGN KEY (id_salon) REFERENCES Salon (id_salon),
+    FOREIGN KEY (id_grado) REFERENCES Grado (id_grado),
+    FOREIGN KEY (id_persona_docente) REFERENCES Docente (id_persona),
+    UNIQUE INDEX id_salon_UNIQUE (id_salon ASC)
 )ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
 
 CREATE TABLE Estudiante(
@@ -202,15 +220,6 @@ CREATE TABLE Es_Dis(
     FOREIGN KEY (fecha_fin) REFERENCES Historial_Disciplina (fecha_fin)
 )ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
 
-CREATE TABLE Salon(
-	id_salon INT NOT NULL,
-    capacidad INT(2),
-    id_colegio INT NOT NULL,
-    PRIMARY KEY (id_salon),
-    FOREIGN KEY (id_colegio) REFERENCES Colegio (id_colegio),
-    UNIQUE INDEX id_salon_UNIQUE (id_salon ASC)
-)ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
-
 CREATE TABLE Tel_Acudiente(
 	id_tel INT NOT NULL,
     num_tel INT(10),
@@ -234,12 +243,6 @@ CREATE TABLE Horario(
     UNIQUE INDEX id_grado_UNIQUE (id_grado ASC)
 )ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
 
-CREATE TABLE Grado(
-	id_grado INT NOT NULL,
-    nivel_institucional VARCHAR(45) NOT NULL,
-    PRIMARY KEY (id_grado)
-)ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
-
 CREATE TABLE Cambio_Colegio(
 	id_registro INT NOT NULL,
     id_colegio INT NOT NULL,
@@ -247,19 +250,6 @@ CREATE TABLE Cambio_Colegio(
     id_estudiante INT NOT NULL,
     fecha_ingreso DATE NOT NULL,
     PRIMARY KEY (id_registro,id_colegio,id_colegio_nu,id_estudiante)
-)ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
-
-CREATE TABLE Curso(
-	id_curso INT NOT NULL,
-    num_estudiantes INT(2),
-    id_salon INT NOT NULL,
-    id_grado INT NOT NULL,
-    id_persona_docente INT NOT NULL,
-    PRIMARY KEY (id_curso),
-    FOREIGN KEY (id_salon) REFERENCES Salon (id_salon),
-    FOREIGN KEY (id_grado) REFERENCES Grado (id_grado),
-    FOREIGN KEY (id_persona_docente) REFERENCES Docente (id_persona),
-    UNIQUE INDEX id_salon_UNIQUE (id_salon ASC)
 )ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
 
 CREATE TABLE Acudiente(
