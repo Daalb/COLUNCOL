@@ -165,10 +165,17 @@ CREATE TABLE Informacion_Medica(
 CREATE TABLE Condiciones_Medicas(
 	nombre VARCHAR(45) NOT NULL,
     tipo VARCHAR(45) NOT NULL,
-    PRIMARY KEY (nombre,tipo)
+    PRIMARY KEY (nombre)
 )ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
 
-/*Aqui va la tabla QUE FALTA XD*/
+CREATE TABLE Im_Cm(
+  nombre VARCHAR(45) NOT NULL,
+  id_reportemedico INT NOT NULL,
+  PRIMARY KEY (nombre,id_reportemedico),
+  FOREIGN KEY (nombre) REFERENCES Condiciones_Medicas (nombre),
+  FOREIGN KEY (id_reportemedico) REFERENCES Informacion_Medica (id_reportemedico)
+)ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
+
 CREATE TABLE Grado(
 	id_grado INT NOT NULL,
     nivel_institucional VARCHAR(45) NOT NULL,
