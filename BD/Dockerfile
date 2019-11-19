@@ -1,2 +1,2 @@
 FROM mysql:5.7
-ADD dump.sql /docker-entrypoint-initdb.d/dump.sql
+ADD coluncol.sql /docker-entrypoint-initdb.d/dump.sql
