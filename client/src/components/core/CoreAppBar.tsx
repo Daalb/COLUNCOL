@@ -1,5 +1,6 @@
 import React, {Fragment} from "react";
-import {AppBar, Toolbar, Typography} from "@material-ui/core";
+import {AppBar, Toolbar} from "@material-ui/core";
+import {PureTypography} from "../pure";
 
 export default class CoreAppBar extends React.Component {
     shouldComponentUpdate = (): boolean => false;
@@ -9,9 +10,10 @@ export default class CoreAppBar extends React.Component {
             <Fragment>
                 <AppBar position={"fixed"} className={"bar"}>
                     <Toolbar>
-                        <Typography variant="h6">Coluncol</Typography>
+                        <PureTypography variant="h6">Coluncol</PureTypography>
                     </Toolbar>
                 </AppBar>
+                <Toolbar/>
                 <Toolbar/>
             </Fragment>
         );

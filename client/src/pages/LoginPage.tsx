@@ -1,52 +1,48 @@
 import React, {ChangeEvent} from "react";
-import {Card, CardContent, Grid, Typography} from "@material-ui/core";
+import {Card, CardContent, Grid} from "@material-ui/core";
 import {Link, Redirect} from "react-router-dom";
-import {loginAction} from "../config/authReducer";
 import {action, observable} from "mobx";
-import {observer} from "mobx-react";
-import {PureButton, PureTextField} from "../components/pure";
+import {PureButton, PureTextField, PureTypography} from "../components/pure";
+import {WithStore} from "../config/store";
+import {inject, observer} from "mobx-react";
 
-type ReduxProps = Partial<{
-    loggedIn: boolean,
-    onLogin: (username: string) => void
-}>;
-
+@inject("store")
 @observer
-class LoginPage extends React.Component<any, any> {
-    @observable private username = "";
-    @observable private password = "";
-
-    @action onUsernameChange = ({target: {value}}: ChangeEvent<HTMLInputElement>) => this.username = value;
-    @action onPasswordChange = ({target: {value}}: ChangeEvent<HTMLInputElement>) => this.password = value;
-
-    onLoginClick = () => {
-        const {onLogin} = this.props;
-        if (onLogin) onLogin(this.username);
+class LoginPage extends WithStore {
+    @observable
+    private info: { [x: string]: any } = {
+        username: "",
+        password: ""
     };
 
+    @action
+    onFieldChange = ({target: {id, value}}: ChangeEvent<HTMLInputElement>) => this.info[id] = value;
+
+    onLoginClick = () => this.store.login(this.info.username);
+
     render() {
-        if (this.props.loggedIn) return <Redirect to={"/"}/>;
+        if (this.store.isLogged) return <Redirect to={"/"}/>;
         return (
             <Grid container justify={"center"}>
-                <p>{this.username} </p>
                 <Grid item xs={12} sm={7} md={5} lg={4}>
                     <Card className={"login-card"}>
                         <CardContent>
                             <Grid container spacing={6}>
                                 <Grid item xs={12}>
-                                    <Typography variant={"h5"}>INICIAR SESIÓN</Typography>
+                                    <PureTypography variant={"h5"}>INICIAR SESIÓN</PureTypography>
                                 </Grid>
                                 <Grid item xs={12}>
                                     <Grid container spacing={2}>
+                                        <Grid item xs={12}/>
                                         <Grid item xs={12}>
                                             <PureTextField fullWidth variant={"outlined"} id={"username"}
-                                                           label={"Usuario"} onChange={this.onUsernameChange}
-                                                           value={this.username}/>
+                                                           label={"Usuario"} onChange={this.onFieldChange}
+                                                           value={this.info.username}/>
                                         </Grid>
                                         <Grid item xs={12}>
                                             <PureTextField fullWidth variant={"outlined"} id={"password"}
                                                            label={"Contraseña"} type={"password"}
-                                                           onChange={this.onPasswordChange} value={this.password}/>
+                                                           onChange={this.onFieldChange} value={this.info.password}/>
                                         </Grid>
                                     </Grid>
                                 </Grid>
@@ -71,13 +67,5 @@ class LoginPage extends React.Component<any, any> {
         );
     }
 }
-
-const mapStateToProps = ({auth}: any): ReduxProps => ({
-    loggedIn: auth.loggedIn
-});
-
-const mapDispatchToProps = (dispatch: (p: any) => void): ReduxProps => ({
-    onLogin: (username) => dispatch(loginAction(username))
-});
 
 export default LoginPage;

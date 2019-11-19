@@ -6,6 +6,7 @@ import CoreNavigationDrawer from "./components/core/CoreNavigationDrawer";
 import CoreAppBar from "./components/core/CoreAppBar";
 import {Provider} from "mobx-react";
 import {store} from "./config/store";
+import {Grid} from "@material-ui/core";
 
 export default class App extends React.Component {
     render = () => {
@@ -16,7 +17,11 @@ export default class App extends React.Component {
                         <CoreNavigationDrawer/>
                         <main className={"content"}>
                             <CoreAppBar/>
-                            <CoreRouter/>
+                            <Grid container >
+                                <Grid item xs={12}>
+                                    <CoreRouter/>
+                                </Grid>
+                            </Grid>
                         </main>
                     </div>
                 </Provider>

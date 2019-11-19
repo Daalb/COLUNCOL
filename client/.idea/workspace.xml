@@ -3,9 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="76a4d036-4ae1-42d6-b475-d463e9896f5b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/CoreAppBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/CoreAppBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/CoreNavigationContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/CoreNavigationContent.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/core/CoreNavigationDrawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/CoreNavigationDrawer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/CoreNavigationHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/CoreNavigationHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/CoreRouter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/CoreRouter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pure/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pure/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +92,8 @@
       <workItem from="1573757015996" duration="6120000" />
       <workItem from="1573763770786" duration="6597000" />
       <workItem from="1573792360878" duration="9435000" />
-      <workItem from="1573960672423" duration="11368000" />
+      <workItem from="1573960672423" duration="13797000" />
+      <workItem from="1574107345626" duration="13705000" />
     </task>
     <servers />
   </component>

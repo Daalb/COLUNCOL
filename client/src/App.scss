@@ -7,7 +7,7 @@ $drawerWidth: 170px;
 
 .text-center {
   text-align: center;
-}sho
+}
 
 .login-card {
   margin: 20px;
@@ -15,7 +15,6 @@ $drawerWidth: 170px;
 }
 
 .App {
-  text-align: center;
   display: flex;
 
   .bar {
@@ -24,6 +23,7 @@ $drawerWidth: 170px;
   }
 
   .drawer {
+    text-align: center;
     width: $drawerWidth;
     flex-shrink: 0;
   }
@@ -34,6 +34,8 @@ $drawerWidth: 170px;
 
   .content {
     flex-grow: 1;
+    margin-right: 40px;
+    margin-left: 40px;
   }
 }
 
