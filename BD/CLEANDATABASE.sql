@@ -1,6 +1,14 @@
 use COLUNCOL; 
 
 DROP TABLE Planilla_Nota;
+DROP TABLE Historico_Nota;
+DROP TABLE Asig_Col;
+DROP TABLE Col_Hor_Cur;
+DROP TABLE Est_Cur;
+DROP TABLE Co_Gra;
+DROP TABLE Es_Cc;
+DROP TABLE Acu_Recoge_ES;
+DROP TABLE Acu_ES;
 DROP TABLE Ingresos_Varios;
 DROP TABLE Pension;
 DROP TABLE Tarifa;
