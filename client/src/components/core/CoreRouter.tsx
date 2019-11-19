@@ -15,6 +15,10 @@ const LazyLoginPage = Loadable({
     loader: () => import("../../pages/LoginPage"),
     loading: () => <LinearProgress/>
 });
+const LazyStudyPlanPage = Loadable({
+    loader: () => import("../../pages/StudyPlanPage"),
+    loading: () => <LinearProgress/>
+});
 
 export default class CoreRouter extends React.Component {
     shouldComponentUpdate = (): boolean => false;
@@ -24,6 +28,7 @@ export default class CoreRouter extends React.Component {
             <Switch>
                 <Route exact path={"/"} component={LazyHomePage}/>
                 <Route path={"/login"} component={LazyLoginPage}/>
+                <Route path={"/study-plan"} component={LazyStudyPlanPage}/>
                 <Route component={LazyNotFoundPage}/>
             </Switch>
         );

@@ -1,17 +1,16 @@
 import React, {Fragment} from "react";
-import {Typography} from "@material-ui/core";
 import {Link} from "react-router-dom";
 import {APILogout} from "../../config/API";
-import {PureButton} from "../pure";
+import {PureButton, PureTypography} from "../pure";
 
 type CoreNavigationHeaderProps = {
-    loggedIn: boolean,
+    logged: boolean,
     username: string,
     onLogout: () => void
 }
 
 export default class CoreNavigationHeader extends React.Component<CoreNavigationHeaderProps> {
-    shouldComponentUpdate = (nextProps: Readonly<CoreNavigationHeaderProps>): boolean => this.props.loggedIn !== nextProps.loggedIn;
+    shouldComponentUpdate = (nextProps: any): boolean => this.props.logged !== nextProps.logged;
 
     logoutClick = () => {
         this.props.onLogout();
@@ -19,10 +18,10 @@ export default class CoreNavigationHeader extends React.Component<CoreNavigation
     };
 
     render = () => {
-        const {loggedIn, username} = this.props;
-        if (loggedIn) return (
+        const {logged, username} = this.props;
+        if (logged) return (
             <Fragment>
-                <Typography className={"header-username"} variant={"h6"}>{username}</Typography>
+                <PureTypography className={"header-username"} variant={"h6"}>{username}</PureTypography>
                 <PureButton component={Link} color={"secondary"} onClick={this.logoutClick} to={"/"}>
                     cerrar sesion
                 </PureButton>
