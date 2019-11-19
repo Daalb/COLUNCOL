@@ -268,7 +268,8 @@ CREATE TABLE Horario(
     FOREIGN KEY (id_grado) REFERENCES Grado (id_grado),
     FOREIGN KEY (id_asignatura) REFERENCES Asignatura (id_asignatura),
     FOREIGN KEY (id_slot) REFERENCES Bloques_Educativos (id_slot),
-    UNIQUE INDEX id_grado_UNIQUE (id_grado ASC)
+    UNIQUE INDEX id_grado_UNIQUE (id_grado ASC),
+    UNIQUE INDEX id_horario_UNIQUE (id_horario ASC)
 )ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
 
 CREATE TABLE Cambio_Colegio(
