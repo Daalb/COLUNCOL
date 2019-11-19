@@ -12,7 +12,7 @@ const BASE_COOKIE_CONFIG = {expires: 3};
 const url = (...dirs: string[]): string => (`${BASE_URL}/${dirs.join("/")}`);
 const withQueryParams = (url: string, query_params: Hash): string => (`${url}?${Object.keys(query_params).map((k) => (`${k}=${query_params[k]}`)).join("&")}`);
 
-axios.get(BASE_URL + "/connectionTest.php").then(
+axios.get(BASE_URL + "/getareas.php").then(
     (v) => console.log(v.data),
 );
 
