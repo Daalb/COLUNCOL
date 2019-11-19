@@ -19,3 +19,8 @@ type Subject = {
     hours: number,
     areaId: number
 }
+type FastNavItem = {
+    color: any,
+    label: string,
+    to: string
+};
