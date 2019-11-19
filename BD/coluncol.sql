@@ -398,7 +398,7 @@ CREATE TABLE Historico_Nota(
     num_nota INT NOT NULL,
     fecha_modif DATE,
     PRIMARY KEY (id_persona_estudiante,id_colegio,id_curso,id_asignatura,id_persona_docente,num_nota),
-	#FOREIGN KEY (num_nota) REFERENCES Planilla_Nota (num_nota),
+	FOREIGN KEY (num_nota) REFERENCES ´Planilla_Nota´ (num_nota),
     FOREIGN KEY (id_persona_estudiante) REFERENCES Estudiante (id_persona),
     FOREIGN KEY (id_colegio) REFERENCES Planilla_Nota (id_colegio),
     FOREIGN KEY (id_curso) REFERENCES Planilla_Nota (id_curso),
@@ -408,7 +408,6 @@ CREATE TABLE Historico_Nota(
 
 
 
-	
 
 
 
