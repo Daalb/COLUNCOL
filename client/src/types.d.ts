@@ -1,4 +1,4 @@
-type Hash = { [x: string]: any };
+type Hash<T = any> = { [x: string]: T };
 type AuthInfo = {
     logged: boolean,
     username: string,

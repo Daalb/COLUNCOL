@@ -1,5 +1,6 @@
 import {action, computed, observable} from "mobx";
 import {Component} from "react";
+import {StoreProps, StoreType} from "../store";
 
 class Store {
     @observable auth: AuthInfo = {
@@ -31,9 +32,6 @@ class Store {
 
     findArea = (id: number): StudyArea => this.studyAreas.find((area) => area.id === id);
 }
-
-type StoreType = typeof store ;
-type StoreProps = { store?: StoreType };
 
 class WithStore<P = {}, S = {}> extends Component<P & StoreProps, S> {
     get store(): StoreType {

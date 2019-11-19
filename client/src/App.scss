@@ -1,5 +1,25 @@
 $drawerWidth: 170px;
 
+table {
+  table-layout: fixed !important;
+}
+
+td {
+  word-wrap: break-word !important;
+}
+
+.fabNavigator {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+
+  a {
+    margin-top: 10px !important;
+  }
+}
+
 .header-username {
   padding: 7px;
   word-wrap: break-word;
