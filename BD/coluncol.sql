@@ -48,7 +48,7 @@ CREATE TABLE Telefono_Sede (
 CREATE TABLE Persona (
   id_persona INT NOT NULL,
   nombre1 VARCHAR(45) NOT NULL,
-  nombre2 VARCHAR(45),
+  nombre2 VARCHAR(45) NOT NULL,
   apellido1 VARCHAR(45) NOT NULL,
   apellido2 VARCHAR(45) NOT NULL,
   sexo VARCHAR(1) NOT NULL,
