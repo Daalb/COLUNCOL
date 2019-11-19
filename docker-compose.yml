@@ -7,9 +7,9 @@ services:
     build: ./BD
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: test_db
-      MYSQL_USER: devuser
-      MYSQL_PASSWORD: devpass
+      MYSQL_DATABASE: COLUNCOL
+      MYSQL_USER: coluncol
+      MYSQL_PASSWORD: coluncolpass
     ports:
       - "9906:3306"
   web:
