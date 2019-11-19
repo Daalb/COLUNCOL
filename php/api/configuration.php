@@ -10,6 +10,14 @@
   $db_schema = 'COLUNCOL';
   date_default_timezone_set("America/Bogota");
 
+  $connection = mysqli_connect($db_host,$db_username,$db_password,$db_schema);
+  if (!$connection) {
+      echo "Error: Unable to connect to MySQL." . PHP_EOL;
+      echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+      echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+  exit;
+  }
+
   /*$test = ['hola'];
   header('Content-Type: application/json');
   echo json_encode($test);*/
