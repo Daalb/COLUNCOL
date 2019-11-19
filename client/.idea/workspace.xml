@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="76a4d036-4ae1-42d6-b475-d463e9896f5b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/StudyPlanPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/StudyPlanPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types.d.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +44,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected="npm.build">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -71,8 +67,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start" />
         <item itemvalue="npm.build" />
+        <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
   </component>
@@ -90,7 +86,7 @@
       <workItem from="1573763770786" duration="6597000" />
       <workItem from="1573792360878" duration="9435000" />
       <workItem from="1573960672423" duration="13797000" />
-      <workItem from="1574107345626" duration="27696000" />
+      <workItem from="1574107345626" duration="27882000" />
     </task>
     <servers />
   </component>
