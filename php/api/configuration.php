@@ -3,6 +3,7 @@
   header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
   header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
   header("Allow: GET, POST, OPTIONS, PUT, DELETE");
+  header('Content-Type: application/json');
 
   $db_host = 'coluncol_db_1';
   $db_username = 'coluncol';

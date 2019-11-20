@@ -1,6 +1,5 @@
 <?php
 include('configuration.php');
-header('Content-Type: application/json');
 
 $query = "SELECT * FROM Colegio";
 $result = mysqli_query($connection, $query);
