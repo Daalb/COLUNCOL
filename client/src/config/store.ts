@@ -5,9 +5,9 @@ import {StoreProps, StoreType} from "../store";
 class Store {
     @observable auth: AuthInfo = {
         logged: true,
-        username: "IE Jesus Maestro",
-        admin: false,
-        schoolId: 1
+        username: "ADMIN",
+        admin: true,
+        schoolId: 0
     };
     @observable schools: School[] = observable([]);
     @observable teachers: Teacher[] = observable([]);
