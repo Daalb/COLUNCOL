@@ -12,7 +12,7 @@ import {
     loadPersonas,
     loadSalones,
     loadSchoolRegisters,
-    loadSchools,
+    loadSchools, loadStudents,
     loadSubjects,
     loadTeachers
 } from "./config/API";
@@ -30,6 +30,7 @@ export default class App extends React.Component {
         await loadSalones();
         await loadPersonas();
         await loadTeachers();
+        await loadStudents();
         this.loaded = true;
     };
 

@@ -16,6 +16,7 @@ class Store {
     @observable schoolRegisters: SchoolRegister[] = observable([]);
     @observable salones: Salon[] = observable([]);
     @observable persons: Person[] = observable([]);
+    @observable students: Student[] = observable([]);
 
     @computed get isLogged(): boolean {
         return this.auth.logged;

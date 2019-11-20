@@ -1,6 +1,6 @@
 import React from "react";
 import {List, ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
-import {Apartment, Book, Home, School} from "@material-ui/icons";
+import {Apartment, Book, Home, Person, School} from "@material-ui/icons";
 import {Link} from "react-router-dom";
 
 type CoreNavigationContentProps = { logged: boolean, isAdmin: boolean };
@@ -43,6 +43,10 @@ export default class CoreNavigationContent extends React.Component<CoreNavigatio
                 <ListItem component={Link} to={"/p-resources"} button>
                     <ListItemIcon><Apartment/></ListItemIcon>
                     <ListItemText primary={"R. fisicos"}/>
+                </ListItem>
+                <ListItem component={Link} to={"/h-resources"} button>
+                    <ListItemIcon><Person/></ListItemIcon>
+                    <ListItemText primary={"R. humanos"}/>
                 </ListItem>
             </List>
         );

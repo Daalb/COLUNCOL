@@ -120,6 +120,21 @@ const loadTeachers = async () => {
     }
 };
 
+const loadStudents = async () => {
+    try {
+        const response = await axios.get<any[]>(url('get_estudiantes.php'));
+        const data = response.data.map((i) => ({
+            personId: Number(i.id_persona),
+            bornDate: i.fecha_nacimiento,
+            mReportId: Number(i.id_reportemedico),
+            courseId: Number(i.id_curso)
+        }));
+        store.students = observable(data);
+    } catch (e) {
+        store.students = observable([]);
+    }
+};
+
 export {
     APILogout,
     loadAreas,
@@ -128,5 +143,6 @@ export {
     loadSchoolRegisters,
     loadSalones,
     loadPersonas,
-    loadTeachers
+    loadTeachers,
+    loadStudents
 };

@@ -12,7 +12,7 @@ while ($row = mysqli_fetch_array($result)) {
     $id_reportemedico = $row['id_reportemedico'];
     $id_curso = $row['id_curso'];
 
-    $estudiantes[] = array('id_persona' => $id_persona, 'fecha_nacimiento' => $fecha_nacimiento,
+    $estudiantes[] = array('id_persona' => $id_est, 'fecha_nacimiento' => $fecha_nacimiento,
              'id_reportemedico' => $id_reportemedico, 'id_curso' => $id_curso);
 }
 
