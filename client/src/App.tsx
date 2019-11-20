@@ -7,7 +7,7 @@ import CoreAppBar from "./components/core/CoreAppBar";
 import {observer, Provider} from "mobx-react";
 import {store} from "./config/store";
 import {Grid, LinearProgress} from "@material-ui/core";
-import {loadAreas} from "./config/API";
+import {loadAreas, loadSubjects} from "./config/API";
 import {observable} from "mobx";
 
 @observer
@@ -16,6 +16,7 @@ export default class App extends React.Component {
 
     componentDidMount = async () => {
         await loadAreas();
+        await loadSubjects();
         this.loaded = true;
     };
 

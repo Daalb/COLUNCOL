@@ -18,11 +18,7 @@ class Store {
         {id: 3, name: "Diego Albor"},
     ]);
     @observable studyAreas: StudyArea[] = observable([]);
-    @observable subjects: Subject[] = observable([
-        {id: 1, name: "Ciencias Sociales", hours: 4, areaId: 1},
-        {id: 2, name: "Matematicas", hours: 6, areaId: 2},
-        {id: 3, name: "Religion", hours: 2, areaId: 3},
-    ]);
+    @observable subjects: Subject[] = observable([]);
 
     @computed get isLogged(): boolean {
         return this.auth.logged;

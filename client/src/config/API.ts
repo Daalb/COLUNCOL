@@ -14,10 +14,6 @@ const BASE_COOKIE_CONFIG = {expires: 3};
 const url = (...dirs: string[]): string => (`${BASE_URL}/${dirs.join("/")}`);
 const withQueryParams = (url: string, query_params: Hash): string => (`${url}?${Object.keys(query_params).map((k) => (`${k}=${query_params[k]}`)).join("&")}`);
 
-axios.get(BASE_URL + "/getareas.php").then(
-    (v) => console.log(v.data),
-);
-
 const APILogout = () => cookies.remove("token", BASE_COOKIE_CONFIG);
 
 const loadAreas = async (): Promise<void> => {
@@ -33,11 +29,16 @@ const loadAreas = async (): Promise<void> => {
 const loadSubjects = async (): Promise<void> => {
     try {
         const response = await axios.get<any[]>(url('get_asignaturas.php'));
-        const data = response.data.map((i) => ({id: i.id_area, name: i.nombre}));
-        store.studyAreas = observable(data);
+        const data = response.data.map((i) => ({
+            id: i.id_asignatura,
+            name: i.nombre,
+            hours: i.Horas,
+            areaId: i.id_area
+        }));
+        store.subjects = observable(data);
     } catch (e) {
-        store.studyAreas = observable([]);
+        store.subjects = observable([]);
     }
 };
 
-export {APILogout, loadAreas};
+export {APILogout, loadAreas, loadSubjects};

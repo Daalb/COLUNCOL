@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29832acb-f01b-47f4-afd8-f0bb572ad020" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/config/API.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/config/API.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/config/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/config/store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/get_asignaturas.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/get_asignaturas.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/getareas.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/getareas.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +109,7 @@
       <workItem from="1573757004250" duration="2743000" />
       <workItem from="1573797652193" duration="604000" />
       <workItem from="1574206703109" duration="1636000" />
-      <workItem from="1574217410521" duration="4288000" />
+      <workItem from="1574217410521" duration="5153000" />
     </task>
     <servers />
   </component>
