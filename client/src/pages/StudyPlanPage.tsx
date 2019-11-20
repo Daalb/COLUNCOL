@@ -113,17 +113,19 @@ export default class StudyPlanPage extends WithStore {
         <TableRow selected={area.id === this.internalStore.area.id} hover key={area.id} onClick={this.onClick}
                   id={`areaId_${area.id}`}>
             <TableCell>{area.name}</TableCell>
-            <TableCell>{area.bossId}</TableCell>
+            <TableCell>{this.store.teachersSearchHash[area.bossId.toString()].name}</TableCell>
         </TableRow>;
+
     renderSubject = (subject: Subject) =>
         <TableRow selected={subject.id === this.internalStore.subject.id} hover key={subject.id} onClick={this.onClick}
                   id={`subjectId_${subject.id}`}>
             <TableCell>{subject.name}</TableCell>
             <TableCell>{subject.hours}</TableCell>
-            <TableCell>{subject.areaId}</TableCell>
+            <TableCell>{this.store.studyAreasSearchHash[subject.areaId.toString()].name}</TableCell>
         </TableRow>;
 
     renderAreas = () => this.store.studyAreas.map(this.renderArea);
+    
     renderSubjects = () => this.store.subjects.map(this.renderSubject);
 
     onAreaSave = () => {

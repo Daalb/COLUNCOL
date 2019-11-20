@@ -25,19 +25,19 @@ class Store {
     }
 
     @computed get teachersSearchHash(): Hash<Teacher> {
-        const result: Hash<Teacher> = {};
+        const result: Hash<Teacher> = {"0": {id: 0, name: "Ninguno"}};
         this.teachers.forEach((teacher) => result[teacher.id.toString()] = teacher);
         return result;
     }
 
     @computed get studyAreasSearchHash(): Hash<StudyArea> {
-        const result: Hash<StudyArea> = {};
+        const result: Hash<StudyArea> = {"0": {id: 0, name: "Ninguno", bossId: 0}};
         this.studyAreas.forEach((area) => result[area.id.toString()] = area);
         return result;
     }
 
     @computed get subjectsSearchHash(): Hash<Subject> {
-        const result: Hash<Subject> = {};
+        const result: Hash<Subject> = {"0": {id: 0, name: "No existe", areaId: 1, hours: 0}};
         this.subjects.forEach((subject) => result[subject.id.toString()] = subject);
         return result;
     }

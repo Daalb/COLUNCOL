@@ -7,21 +7,21 @@
       <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
       <DefaultCasing>exact</DefaultCasing>
     </root>
-    <schema id="2" parent="1" name="information_schema">
-      <Collation>utf8_general_ci</Collation>
-    </schema>
-    <schema id="3" parent="1" name="mysql">
-      <Collation>latin1_swedish_ci</Collation>
-    </schema>
-    <schema id="4" parent="1" name="performance_schema">
-      <Collation>utf8_general_ci</Collation>
-    </schema>
-    <schema id="5" parent="1" name="sys">
-      <Collation>utf8_general_ci</Collation>
-    </schema>
-    <schema id="6" parent="1" name="test_db">
+    <schema id="2" parent="1" name="COLUNCOL">
       <Current>1</Current>
       <Collation>latin1_swedish_ci</Collation>
+    </schema>
+    <schema id="3" parent="1" name="information_schema">
+      <Collation>utf8_general_ci</Collation>
+    </schema>
+    <schema id="4" parent="1" name="mysql">
+      <Collation>latin1_swedish_ci</Collation>
+    </schema>
+    <schema id="5" parent="1" name="performance_schema">
+      <Collation>utf8_general_ci</Collation>
+    </schema>
+    <schema id="6" parent="1" name="sys">
+      <Collation>utf8_general_ci</Collation>
     </schema>
     <collation id="7" parent="1" name="armscii8_bin">
       <Charset>armscii8</Charset>
@@ -911,7 +911,7 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="229" parent="6" name="infojuego"/>
+    <table id="229" parent="2" name="infojuego"/>
     <column id="230" parent="229" name="id">
       <Position>1</Position>
       <DataType>int(30)|0s</DataType>

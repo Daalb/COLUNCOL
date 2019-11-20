@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="@192168.99.100" uuid="de28524d-4e5e-4717-89cb-7203af62d365">
-      <driver-ref>mysql</driver-ref>
+    <data-source source="LOCAL" name="COLUNCOL@192.168.99.101" uuid="d865e5e2-5ba6-4ea9-a317-5fc1b439c99f">
+      <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://192.168.99.100:9906/test_db</jdbc-url>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://192.168.99.101:9906/COLUNCOL</jdbc-url>
     </data-source>
   </component>
 </project>
