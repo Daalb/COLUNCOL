@@ -1,6 +1,5 @@
 <?php
 include('configuration.php');
-header('Content-Type: application/json');
 
 $query = "SELECT * FROM Area";
 $result = mysqli_query($connection, $query);
@@ -21,3 +20,4 @@ or die("Ha sucedido un error inexperado en la desconexion de la base de datos");
 
 $json_string = json_encode($areas);
 echo $json_string;
+?>

@@ -1,7 +1,7 @@
 <?php
     include('configuration.php');
 
-    $dml= "INSERT INTO `COLUNCOL`.`Colegio` (``) 
+    $dml= "INSERT INTO Colegio (id_colegio, nombre,siglas, pag_web, correo,id_registro) 
             VALUES ('')";
 
     if (mysqli_query($conn, $sql)) {
