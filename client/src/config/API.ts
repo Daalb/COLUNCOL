@@ -92,9 +92,9 @@ const loadPersonas = async () => {
     try {
         const response = await axios.get<any[]>(url('get_personas.php'));
         const data = response.data.map((i) => ({
-            id: Number(i.id_salon),
-            name1: i.nombre_1,
-            name2: i.nombre_2,
+            id: Number(i.id_persona),
+            name1: i.nombre1,
+            name2: i.nombre2,
             lastName1: i.apellido1,
             lastName2: i.apellido2,
             gender: i.sexo
