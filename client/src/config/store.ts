@@ -10,15 +10,12 @@ class Store {
         schoolId: 1
     };
     @observable schools: School[] = observable([]);
-    @observable teachers: Teacher[] = observable([
-        {id: 1, name: "Jose Padilla"},
-        {id: 2, name: "Luis Potte"},
-        {id: 3, name: "Diego Albor"},
-    ]);
+    @observable teachers: Teacher[] = observable([]);
     @observable studyAreas: StudyArea[] = observable([]);
     @observable subjects: Subject[] = observable([]);
     @observable schoolRegisters: SchoolRegister[] = observable([]);
     @observable salones: Salon[] = observable([]);
+    @observable persons: Person[] = observable([]);
 
     @computed get isLogged(): boolean {
         return this.auth.logged;
@@ -33,8 +30,23 @@ class Store {
     }
 
     @computed get teachersSearchHash(): Hash<Teacher> {
-        const result: Hash<Teacher> = {"0": {id: 0, name: "Ninguno"}};
-        this.teachers.forEach((teacher) => result[teacher.id.toString()] = teacher);
+        const result: Hash<Teacher> = {"0": {personId: 0, role: "", spec: "", stLevel: ""}};
+        this.teachers.forEach((teacher) => result[teacher.personId.toString()] = teacher);
+        return result;
+    }
+
+    @computed get personSearchHash(): Hash<Person> {
+        const result: Hash<Person> = {
+            "0": {
+                gender: "",
+                id: 0,
+                lastName1: "",
+                lastName2: "",
+                name1: "Ninguno",
+                name2: ""
+            }
+        };
+        this.persons.forEach((person) => result[person.id.toString()] = person);
         return result;
     }
 

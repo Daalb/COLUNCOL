@@ -10,6 +10,14 @@ type Salon = {
     capacity: number,
     schoolId: number
 };
+type Person = {
+    id: number,
+    name1: string,
+    name2: string,
+    lastName1: string,
+    lastName2: string,
+    gender: string
+};
 type School = {
     id: number,
     name: string,
@@ -19,8 +27,10 @@ type School = {
     regId: number
 };
 type Teacher = {
-    id: number,
-    name: string,
+    personId: number,
+    stLevel: string,
+    spec: string,
+    role: string
 };
 type StudyArea = {
     id: number,
