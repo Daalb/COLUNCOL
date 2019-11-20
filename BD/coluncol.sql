@@ -1,28 +1,27 @@
 #CREATE SCHEMA `new_schema` ;
 use COLUNCOL; 
 
-CREATE TABLE Registro_Colegio(
-  id_Registro INT NOT NULL,
-  estado VARCHAR(45) NOT NULL,
-  fecha_asig DATE NOT NULL,
-  fecha_fin DATE NULL,
-  renovación VARCHAR(45) NULL,
-  PRIMARY KEY (id_Registro),
-  UNIQUE INDEX id_Registro_UNIQUE (id_Registro ASC)
-) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
-
 CREATE TABLE Colegio (
   id_colegio INT NOT NULL,
   nombre VARCHAR(45) NOT NULL,
   siglas VARCHAR(45) NOT NULL,
-  pag_web VARCHAR(45) NULL,
+  pag_web VARCHAR(45),
   correo VARCHAR(45) NOT NULL,
-  id_registro INT NOT NULL,
   PRIMARY KEY (id_colegio),
-  FOREIGN KEY (id_registro) REFERENCES Registro_Colegio (id_Registro),
-  UNIQUE INDEX id_colegio_UNIQUE (id_colegio ASC),
-  UNIQUE INDEX id_registro_UNIQUE (id_registro ASC)
+  UNIQUE INDEX id_colegio_UNIQUE (id_colegio ASC)
   ) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
+
+CREATE TABLE Registro_Colegio(
+  autonumerico INT NOT NULL AUTO_INCREMENT,
+  id_Registro INT NOT NULL,
+  estado VARCHAR(45) NOT NULL,
+  fecha_asig DATE NOT NULL,
+  fecha_fin DATE,
+  id_colegio INT NOT NULL,
+  PRIMARY KEY (autonumerico,id_Registro),
+  UNIQUE INDEX autonumerico_UNIQUE (autonumerico ASC),
+  FOREIGN KEY (id_colegio) REFERENCES Colegio (id_colegio)
+) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
   
 CREATE TABLE Sede (
   id_colegio INT NOT NULL,

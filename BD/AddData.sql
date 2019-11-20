@@ -67,6 +67,31 @@ INSERT INTO Persona VALUES (1001565756,'Sharay','Isabel','Martinez','Ojeda','F')
 INSERT INTO Persona VALUES (1001029302,'Eneida','Maria','Martinez','Ojeda','F');
 
 
-SELECT *
-FROM Persona
-ORDER BY nombre1
+/*Colegio*/
+INSERT INTO Colegio VALUES (12437904,'Institución Educativa Betania Norte','IEBN','www.IEBetniaNorte.com','IEbetanianorte@gmail.com');
+INSERT INTO Colegio VALUES (10937592,'IED Marco Fidel Suárez','IEDMFS','www.IEDMFSuarez.com','IEDMFsuarez@gmail.com');
+INSERT INTO Colegio VALUES (68056745,'Colegio Jesus Maestro','CJM','www.colegiojesusmaestro.com','cjesusm@hotmail.com');
+INSERT INTO Colegio VALUES (89076567,'Centro Educativo Para El Desarrollo Integral','CEDI','www.cedi.com','cedi@hotmail.com');
+INSERT INTO Colegio VALUES (29203421,'Politécnico de Soledad','PDS','www.pds.com','politecsoleda@yahoo.es');
+
+
+
+/*Registro*/
+INSERT INTO Registro_Colegio VALUES (NULL,60670013,'Finalizado','2017-01-01','2018-01-01',12437904);
+INSERT INTO Registro_Colegio VALUES (NULL,60670013,'Finalizado','2018-01-01','2019-01-01',12437904);
+INSERT INTO Registro_Colegio VALUES (NULL,60670013,'Activo','2019-01-01',NULL,12437904);
+INSERT INTO Registro_Colegio VALUES (NULL,12960983,'Finalizado','2015-01-01','2016-01-01',10937592);
+INSERT INTO Registro_Colegio VALUES (NULL,12960983,'Finalizado','2016-03-20','2017-03-20',10937592);
+INSERT INTO Registro_Colegio VALUES (NULL,12960983,'Finalizado','2017-04-21','2018-04-21',10937592);
+INSERT INTO Registro_Colegio VALUES (NULL,12960983,'Activo','2018-05-01',NULL,10937592);
+INSERT INTO Registro_Colegio VALUES (NULL,67543976,'Finalizado','2018-01-01','2019-01-01',68056745);
+INSERT INTO Registro_Colegio VALUES (NULL,87865643,'Finalizado','2018-01-01','2019-01-01',89076567);
+INSERT INTO Registro_Colegio VALUES (NULL,87865643,'Finalizado','2018-01-01',NULL,89076567);
+INSERT INTO Registro_Colegio VALUES (NULL,39576086,'Finalizado','2018-01-01',NULL,29203421);
+
+select *
+from Colegio as co inner join Registro_Colegio as rco on(co.id_colegio=rco.id_colegio)
+
+
+
+
