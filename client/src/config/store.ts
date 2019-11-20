@@ -139,6 +139,8 @@ class Store {
     findSubject = (id: number): Subject => this.subjects.find((subject) => subject.id === id);
     findSchool = (id: number): School => this.schools.find((school) => school.id === id);
     findSalon = (id: number): Salon => this.salones.find((salon) => salon.id === id);
+    findTeacher = (id: number): Teacher => this.teachers.find((teacher) => teacher.personId === id);
+    findPerson = (id: number): Person => this.persons.find((teacher) => teacher.id === id);
 }
 
 class WithStore<P = {}, S = {}> extends Component<P & StoreProps, S> {
