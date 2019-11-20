@@ -91,14 +91,15 @@ CREATE TABLE Do_Co (
 )ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 
 CREATE TABLE Area(
+  autoid INT NOT NULL AUTO_INCREMENT,
   id_area INT NOT NULL,
   nombre VARCHAR(45) NOT NULL,
   id_director INT NOT NULL,
   id_colegio INT NOT NULL,
-  PRIMARY KEY (id_area),
+  PRIMARY KEY (autoid,id_area),
   FOREIGN KEY (id_director) REFERENCES Docente (id_persona),
   FOREIGN KEY (id_colegio) REFERENCES Colegio (id_colegio),
-  UNIQUE INDEX id_area_UNIQUE (id_area ASC)
+  UNIQUE INDEX autoid_UNIQUE (autoid ASC)
 )ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 
 CREATE TABLE Asignatura (
