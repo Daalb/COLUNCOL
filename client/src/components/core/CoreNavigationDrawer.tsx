@@ -9,12 +9,12 @@ import {inject, observer} from "mobx-react";
 @observer
 export default class CoreNavigationDrawer extends WithStore {
     render() {
-        const {logout, isLogged, auth: {username}} = this.store;
+        const {logout, isLogged, auth: {username, admin}} = this.store;
         return (
             <Drawer variant={"permanent"} anchor={"left"} className={"drawer"} classes={{paper: "paper"}}>
                 <CoreNavigationHeader onLogout={logout} logged={isLogged} username={username}/>
                 <Divider/>
-                <CoreNavigationContent logged={isLogged}/>
+                <CoreNavigationContent logged={isLogged} isAdmin={admin}/>
             </Drawer>
         );
     }

@@ -4,7 +4,6 @@ import {ButtonProps} from "@material-ui/core/Button";
 import {TextFieldProps} from "@material-ui/core/TextField";
 import {TypographyProps} from "@material-ui/core/Typography";
 import {IconButtonProps} from "@material-ui/core/IconButton";
-import {KeyboardDatePicker, KeyboardDatePickerProps} from "@material-ui/pickers";
 
 type Hash = { [x: string]: any };
 

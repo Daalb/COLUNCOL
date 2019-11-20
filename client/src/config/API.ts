@@ -74,4 +74,18 @@ const loadSchoolRegisters = async (): Promise<void> => {
     }
 };
 
-export {APILogout, loadAreas, loadSubjects, loadSchools, loadSchoolRegisters};
+const loadSalones = async (): Promise<void> => {
+    try {
+        const response = await axios.get<any[]>(url('get_salones.php'));
+        const data = response.data.map((i) => ({
+            id: Number(i.id_salon),
+            capacity: Number(i.capacidad),
+            schoolId: Number(i.id_colegio)
+        }));
+        store.salones = observable(data);
+    } catch (e) {
+        store.salones = observable([]);
+    }
+};
+
+export {APILogout, loadAreas, loadSubjects, loadSchools, loadSchoolRegisters, loadSalones};
