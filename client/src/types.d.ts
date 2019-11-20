@@ -26,6 +26,12 @@ type School = {
     email: string,
     regId: number
 };
+type Student = {
+    personId: number,
+    bornDate: string,
+    mReportId: number,
+    courseId: number
+};
 type Teacher = {
     personId: number,
     stLevel: string,

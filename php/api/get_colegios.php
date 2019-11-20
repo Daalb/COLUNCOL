@@ -8,12 +8,12 @@
 
     while ($row = mysqli_fetch_array($result)) {
         $id = $row['id_colegio'];
-        //$nom = $row['nombre'];
+        $nom = $row['nombre'];
         $sg = $row['siglas'];
         $web = $row['pag_web'];
         $correo = $row['correo'];
 
-        $colegios[] = array('id_colegio' => $id, /*'nombre' => $nom,*/ 'siglas' => $sg, 'pag_web' => 
+        $colegios[] = array('id_colegio' => $id, 'nombre' => $nom, 'siglas' => $sg, 'pag_web' =>
         $web, 'correo' => $correo);
     }
 
