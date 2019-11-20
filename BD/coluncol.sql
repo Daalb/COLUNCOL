@@ -42,7 +42,10 @@ CREATE TABLE Telefono_Sede (
   id_colegio INT NOT NULL,
   PRIMARY KEY (id_telefono),
   FOREIGN KEY (id_colegio) REFERENCES Sede (id_colegio),
+<<<<<<< HEAD
   FOREIGN KEY (id_sede_en_bd) REFERENCES Sede (id_sede_en_bd),	
+=======
+>>>>>>> 191581247b5b0651792cbc1106a1b48cc2cc54ec
   UNIQUE KEY id_telefono_UNIQUE (id_telefono ASC)
   ) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 
