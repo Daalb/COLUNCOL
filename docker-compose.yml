@@ -4,7 +4,7 @@ version: '3'
 
 services:
   db:
-    build: ./BD
+    build: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: COLUNCOL
