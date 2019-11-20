@@ -37,10 +37,8 @@ CREATE TABLE Telefono_Sede (
   tipo VARCHAR(45) NOT NULL,
   vigente VARCHAR(2) NOT NULL,
   id_colegio INT NOT NULL,
-  num_sede INT NOT NULL,
   PRIMARY KEY (id_telefono),
   FOREIGN KEY (id_colegio) REFERENCES Sede (id_colegio),
-  FOREIGN KEY (num_sede) REFERENCES Sede (num_sede),	
   UNIQUE KEY id_telefono_UNIQUE (id_telefono ASC)
   ) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 
