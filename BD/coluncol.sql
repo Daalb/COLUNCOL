@@ -380,17 +380,19 @@ CREATE TABLE Asig_Col(
 )ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
 
 CREATE TABLE Planilla_Nota(
-	id_colegio INT NOT NULL,
+	id_nota_en_planilla INT NOT NULL,
+    id_colegio INT NOT NULL,
     id_curso INT NOT NULL,
     id_persona_docente INT NOT NULL,
     id_asignatura INT NOT NULL,
     num_nota INT NOT NULL,
     nota FLOAT NOT NULL,
-    PRIMARY KEY (id_colegio,id_curso,id_persona_docente,id_asignatura,num_nota),
+    PRIMARY KEY (id_colegio,id_curso,id_persona_docente,id_asignatura,id_nota_en_planilla),
 	FOREIGN KEY (id_colegio) REFERENCES Colegio (id_colegio),
     FOREIGN KEY (id_curso) REFERENCES Curso (id_curso),
     FOREIGN KEY (id_asignatura) REFERENCES Asignatura (id_asignatura),
-    FOREIGN KEY (id_persona_docente) REFERENCES Docente (id_persona)
+    FOREIGN KEY (id_persona_docente) REFERENCES Docente (id_persona),
+	UNIQUE INDEX id_nota_en_planilla_UNIQUE (id_nota_en_planilla ASC)
 )ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
 
 
@@ -400,10 +402,10 @@ CREATE TABLE Historico_Nota(
     id_curso INT NOT NULL,
     id_asignatura INT NOT NULL,
     id_persona_docente INT NOT NULL,
-    num_nota INT NOT NULL,
+    id_nota_en_planilla INT NOT NULL,
     fecha_modif DATE,
-    PRIMARY KEY (id_persona_estudiante,id_colegio,id_curso,id_asignatura,id_persona_docente,num_nota),
-	FOREIGN KEY (num_nota) REFERENCES ´Planilla_Nota´ (num_nota),
+    PRIMARY KEY (id_persona_estudiante,id_colegio,id_curso,id_asignatura,id_persona_docente,id_nota_en_planilla),
+	FOREIGN KEY (id_nota_en_planilla) REFERENCES Planilla_Nota (id_nota_en_planilla),
     FOREIGN KEY (id_persona_estudiante) REFERENCES Estudiante (id_persona),
     FOREIGN KEY (id_colegio) REFERENCES Planilla_Nota (id_colegio),
     FOREIGN KEY (id_curso) REFERENCES Planilla_Nota (id_curso),

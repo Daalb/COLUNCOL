@@ -1,7 +1,7 @@
 use COLUNCOL; 
 
-DROP TABLE Planilla_Nota;
 DROP TABLE Historico_Nota;
+DROP TABLE Planilla_Nota;
 DROP TABLE Asig_Col;
 DROP TABLE Col_Hor_Cur;
 DROP TABLE Est_Cur;
