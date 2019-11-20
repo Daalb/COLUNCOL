@@ -1,7 +1,7 @@
 <?php
     include('configuration.php');
 
-    $dml= "INSERT INTO `COLUNCOL`.`Asignatura` (``) 
+    $dml= "INSERT INTO `COLUNCOL`.`Registro_Colegio` (``) 
             VALUES ('')";
 
     if (mysqli_query($conn, $sql)) {
@@ -10,4 +10,3 @@
         echo "Error: " . $dml . "<br>" . mysqli_error($conn);
     }    
 ?>
-  
