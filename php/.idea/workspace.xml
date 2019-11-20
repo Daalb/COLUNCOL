@@ -8,6 +8,8 @@
       <change beforePath="$PROJECT_DIR$/../client/src/config/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/config/store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/get_asignaturas.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/get_asignaturas.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/get_colegios.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/get_colegios.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/get_personas.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/get_personas.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/getareas.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/getareas.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -109,7 +111,7 @@
       <workItem from="1573757004250" duration="2743000" />
       <workItem from="1573797652193" duration="604000" />
       <workItem from="1574206703109" duration="1636000" />
-      <workItem from="1574217410521" duration="5153000" />
+      <workItem from="1574217410521" duration="5226000" />
     </task>
     <servers />
   </component>
