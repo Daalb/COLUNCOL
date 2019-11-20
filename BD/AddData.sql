@@ -235,6 +235,38 @@ INSERT INTO Col_Per VALUES (29203421,1597538524);
 INSERT INTO Col_Per VALUES (29203421,1596542358);
 
 
+
+/*Cuenta Bancaria*/
+INSERT INTO Cuenta_Bancaria VALUES(12398475,'Davivienda');
+INSERT INTO Cuenta_Bancaria VALUES(46738595,'Bancolombia');
+INSERT INTO Cuenta_Bancaria VALUES(45957384,'BBVA');
+INSERT INTO Cuenta_Bancaria VALUES(39502846,'BBVA');
+INSERT INTO Cuenta_Bancaria VALUES(38458697,'Bancolombia');
+INSERT INTO Cuenta_Bancaria VALUES(19357459,'Davivienda');
+INSERT INTO Cuenta_Bancaria VALUES(34985872,'Davivienda');
+INSERT INTO Cuenta_Bancaria VALUES(84747534,'BBVA');
+INSERT INTO Cuenta_Bancaria VALUES(93847523,'Davivienda');
+INSERT INTO Cuenta_Bancaria VALUES(59473845,'Bancolombia');
+INSERT INTO Cuenta_Bancaria VALUES(22938482,'Caja Social');
+INSERT INTO Cuenta_Bancaria VALUES(21244555,'Caja Social');
+INSERT INTO Cuenta_Bancaria VALUES(56938553,'Bancolombia');
+INSERT INTO Cuenta_Bancaria VALUES(93848293,'Bancolombia');
+INSERT INTO Cuenta_Bancaria VALUES(12456356,'Davivienda');
+INSERT INTO Cuenta_Bancaria VALUES(59584835,'Davivienda');
+INSERT INTO Cuenta_Bancaria VALUES(20394824,'Caja Social');
+INSERT INTO Cuenta_Bancaria VALUES(48582745,'BBVA');
+INSERT INTO Cuenta_Bancaria VALUES(33348273,'BBVA');
+INSERT INTO Cuenta_Bancaria VALUES(12345679,'Banolombia');
+INSERT INTO Cuenta_Bancaria VALUES(21456667,'Bancolombia');
+INSERT INTO Cuenta_Bancaria VALUES(94984824,'BBVA');
+INSERT INTO Cuenta_Bancaria VALUES(43234567,'BBVA');
+INSERT INTO Cuenta_Bancaria VALUES(22848573,'Davivienda');
+
+
+
+
+
+
 /*Empleados*/
 INSERT INTO Empleado VALUES ();
 
