@@ -1,7 +1,7 @@
 <?php
     include('configuration.php');
 
-    $query = "SELECT nombre FROM Colegio";
+    $query = "SELECT * FROM Colegio";
     $result = mysqli_query($connection, $query);
 
     $colegios = array();

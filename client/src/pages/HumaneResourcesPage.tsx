@@ -178,8 +178,9 @@ export default class HumaneResourcesPage extends WithStore {
                         </Grid>
                         <Grid item xs={12} md={4}>
                             <PureTextField fullWidth variant={"outlined"} id={"teacherGender"} select
-                                           label={"Genero *"} value={this.internalStore.teacher.gender}
-                                           onChange={this.onChange} helperText={"obligatorio"}>
+                                           SelectProps={{native: true}} label={"Genero *"}
+                                           value={this.internalStore.teacher.gender} onChange={this.onChange}
+                                           helperText={"obligatorio"}>
                                 <option value="M">Masculino</option>
                                 <option value="F">Femenino</option>
                                 <option value="O">Otro</option>
