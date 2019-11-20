@@ -1,5 +1,7 @@
 import axios from "axios";
 import cookies from "js-cookie";
+import {store} from "./store";
+import {observable} from "mobx";
 
 type Hash = { [x: string]: any }
 type APIResponse =
@@ -18,23 +20,24 @@ axios.get(BASE_URL + "/getareas.php").then(
 
 const APILogout = () => cookies.remove("token", BASE_COOKIE_CONFIG);
 
-const startApp = async (): Promise<APIResponse> => {
-    const token = cookies.get("token");
-    const username = cookies.get("username");
-    if (token && username) {
-        try {
-            const response = await axios.get(withQueryParams(url("users", "valid-token"), {token: token}));
-            cookies.set("token", token, BASE_COOKIE_CONFIG);
-            cookies.set("username", response.data.payload.username, BASE_COOKIE_CONFIG);
-            return {okay: true, payload: {token: token, username: response.data.payload.username}}
-        } catch (e) {
-            cookies.remove("token", BASE_COOKIE_CONFIG);
-            cookies.remove("username", BASE_COOKIE_CONFIG);
-            if (e.response) return {okay: false, errors: e.response.data};
-            else return {okay: false, errors: {credentials: "Connection error."}};
-        }
+const loadAreas = async (): Promise<void> => {
+    try {
+        const response = await axios.get<any[]>(url('getareas.php'));
+        const data = response.data.map((i) => ({id: i.id_area, name: i.nombre}));
+        store.studyAreas = observable(data);
+    } catch (e) {
+        store.studyAreas = observable([]);
     }
-    return {okay: false, errors: {}};
 };
 
-export {APILogout};
+const loadSubjects = async (): Promise<void> => {
+    try {
+        const response = await axios.get<any[]>(url('get_asignaturas.php'));
+        const data = response.data.map((i) => ({id: i.id_area, name: i.nombre}));
+        store.studyAreas = observable(data);
+    } catch (e) {
+        store.studyAreas = observable([]);
+    }
+};
+
+export {APILogout, loadAreas};

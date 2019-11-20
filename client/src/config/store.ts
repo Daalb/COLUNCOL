@@ -17,11 +17,7 @@ class Store {
         {id: 2, name: "Luis Potte"},
         {id: 3, name: "Diego Albor"},
     ]);
-    @observable studyAreas: StudyArea[] = observable([
-        {id: 1, name: "Humanidades"},
-        {id: 2, name: "Ciencias"},
-        {id: 3, name: "Etica y valores"},
-    ]);
+    @observable studyAreas: StudyArea[] = observable([]);
     @observable subjects: Subject[] = observable([
         {id: 1, name: "Ciencias Sociales", hours: 4, areaId: 1},
         {id: 2, name: "Matematicas", hours: 6, areaId: 2},

@@ -4,12 +4,23 @@ import {BrowserRouter} from 'react-router-dom'
 import CoreRouter from "./components/core/CoreRouter";
 import CoreNavigationDrawer from "./components/core/CoreNavigationDrawer";
 import CoreAppBar from "./components/core/CoreAppBar";
-import {Provider} from "mobx-react";
+import {observer, Provider} from "mobx-react";
 import {store} from "./config/store";
-import {Grid} from "@material-ui/core";
+import {Grid, LinearProgress} from "@material-ui/core";
+import {loadAreas} from "./config/API";
+import {observable} from "mobx";
 
+@observer
 export default class App extends React.Component {
-    render = () => {
+    @observable private loaded = false;
+
+    componentDidMount = async () => {
+        await loadAreas();
+        this.loaded = true;
+    };
+
+    render() {
+        if (!this.loaded) return <LinearProgress/>;
         return (
             <BrowserRouter>
                 <Provider store={store}>
@@ -17,7 +28,7 @@ export default class App extends React.Component {
                         <CoreNavigationDrawer/>
                         <main className={"content"}>
                             <CoreAppBar/>
-                            <Grid container >
+                            <Grid container>
                                 <Grid item xs={12}>
                                     <CoreRouter/>
                                 </Grid>
