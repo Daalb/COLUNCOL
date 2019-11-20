@@ -10,12 +10,12 @@ while ($row = mysqli_fetch_array($result)) {
     $id = $row['id_persona'];
     $nombre1 = $row['nombre1'];
     $nombre2 = $row['nombre2'];
-    $apellido1 = $row['apellido1'];
-    $apellido2 = $row['apellido2'];
+    $apell1 = $row[0];
+    //$apellido2 = $row['apellido2'];
     $sexo = $row['sexo'];
 
     $array[] = array('id_persona' => $id, 'nombre1' => $nombre1, 'nombre2' => $nombre2,
-                    'apellido1' => $apellido1,'apellido2' => $apellido2, 'sexo' => $sexo);
+    'apellido1' => $apell1, 'sexo' => $sexo);
 }
 
 $close = mysqli_close($connection)
