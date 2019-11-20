@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="29832acb-f01b-47f4-afd8-f0bb572ad020" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/pages/HumaneResourcesPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/pages/HumaneResourcesPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/config/API.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/config/API.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/pages/SchoolsPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/pages/SchoolsPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,34 +44,6 @@
         <item name="COLUNCOL@192.168.99.101" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="COLUNCOL: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="COLUNCOL@192.168.99.101" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="COLUNCOL: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="Colegio: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="COLUNCOL@192.168.99.101" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="COLUNCOL: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="Do_Co: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="COLUNCOL@192.168.99.101" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="COLUNCOL: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="Docente: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="COLUNCOL@192.168.99.101" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="COLUNCOL: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="Registro_Colegio: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -116,6 +89,31 @@
               <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@eedf3d1b" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceNode@3f642ff0" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@eedf3d1b" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@589acc0f" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@eedf3d1b" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@48c6c431" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@eedf3d1b" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@21d07b8a" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@eedf3d1b" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@7daeadb3" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@eedf3d1b" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@52543c7b" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
           </expand>
           <select />
         </treeState>
@@ -135,7 +133,7 @@
       <workItem from="1573757004250" duration="2743000" />
       <workItem from="1573797652193" duration="604000" />
       <workItem from="1574206703109" duration="1636000" />
-      <workItem from="1574217410521" duration="20056000" />
+      <workItem from="1574217410521" duration="27588000" />
     </task>
     <servers />
   </component>

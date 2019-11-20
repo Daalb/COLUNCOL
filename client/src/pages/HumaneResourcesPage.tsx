@@ -144,7 +144,7 @@ export default class HumaneResourcesPage extends WithStore {
     }
 
     renderTeacher = (teacher: Teacher) => {
-        const person = this.store.personSearchHash[teacher.personId.toString()];
+        const person = this.store.personSearchHash[teacher.personId.toString()] || {} as Hash;
         const name = `${person.name1} ${person.name2 ? person.name2 + " " : ""}${person.lastName1} ${person.lastName2}`;
         return <TableRow selected={teacher.personId === this.internalStore.teacher.personId} hover
                          key={teacher.personId}

@@ -16,6 +16,8 @@ const withQueryParams = (url: string, query_params: Hash): string => (`${url}?${
 
 const APILogout = () => cookies.remove("token", BASE_COOKIE_CONFIG);
 
+axios.get(url('getareas.php')).then((r)=>console.log(r.data));
+
 const loadAreas = async () => {
     try {
         const response = await axios.get<any[]>(url('getareas.php'));

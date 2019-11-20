@@ -93,7 +93,7 @@ export default class SchoolsPage extends WithStore {
             <TableCell>{school.name}</TableCell>
             <TableCell>{school.abbr}</TableCell>
             <TableCell>{school.email}</TableCell>
-            <TableCell>{school.webPage}</TableCell>
+            <TableCell><a href={school.webPage}>{school.webPage}</a></TableCell>
         </TableRow>;
 
     renderSchools = () => this.store.schools.map(this.renderSchool);
