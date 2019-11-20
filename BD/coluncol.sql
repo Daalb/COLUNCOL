@@ -24,23 +24,25 @@ CREATE TABLE Registro_Colegio(
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
   
 CREATE TABLE Sede (
+  id_sede_en_bd INT NOT NULL AUTO_INCREMENT,
   id_colegio INT NOT NULL,
   num_sede INT NOT NULL,
   ubcación_geo VARCHAR(45),
-  PRIMARY KEY (id_colegio, num_sede),
-  FOREIGN KEY (id_colegio) REFERENCES Colegio (id_colegio)
+  PRIMARY KEY (id_colegio, num_sede, id_sede_en_bd),
+  FOREIGN KEY (id_colegio) REFERENCES Colegio (id_colegio),
+  UNIQUE INDEX id_sede_en_bd_UNIQUE (id_sede_en_bd ASC)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 
 CREATE TABLE Telefono_Sede (
+  id_sede_en_bd INT NOT NULL,
   id_telefono INT NOT NULL AUTO_INCREMENT,
   num_telefono INT(10) NOT NULL,
   tipo VARCHAR(45) NOT NULL,
   vigente VARCHAR(2) NOT NULL,
   id_colegio INT NOT NULL,
-  num_sede INT NOT NULL,
   PRIMARY KEY (id_telefono),
   FOREIGN KEY (id_colegio) REFERENCES Sede (id_colegio),
-  FOREIGN KEY (num_sede) REFERENCES Sede (num_sede),	
+  FOREIGN KEY (id_sede_en_bd) REFERENCES Sede (id_sede_en_bd),	
   UNIQUE KEY id_telefono_UNIQUE (id_telefono ASC)
   ) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 
@@ -108,7 +110,7 @@ CREATE TABLE Asignatura (
   Horas INT NOT NULL,
   id_area INT NOT NULL,
   PRIMARY KEY (id_asignatura),
-  FOREIGN KEY (id_area) REFERENCES Area(id_area),
+  FOREIGN KEY (id_area) REFERENCES Area(autoid),
   UNIQUE INDEX id_asignatura_UNIQUE (id_asignatura ASC)
 )ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 
@@ -133,7 +135,7 @@ CREATE TABLE Adscrito_a (
   id_area INT NOT NULL,
   id_profesor INT NOT NULL,
   PRIMARY KEY (id_area, id_profesor),
-  FOREIGN KEY (id_area) REFERENCES Area (id_area),
+  FOREIGN KEY (id_area) REFERENCES Area (autoid),
   FOREIGN KEY (id_profesor) REFERENCES Docente (id_persona)
 )ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 
