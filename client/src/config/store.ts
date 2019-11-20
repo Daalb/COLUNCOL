@@ -8,13 +8,25 @@ class Store {
         username: "IE Jesus Maestro",
         admin: false
     };
-    @observable teachers: Teacher[] = [{id: 1, name: "Jose Padilla"}];
-    @observable studyAreas: StudyArea[] = observable([
-        {id: 1, name: "Humanidades", bossId: 1},
-        {id: 2, name: "Ciencias", bossId: 1},
-        {id: 3, name: "Etica y valores", bossId: 1},
+    @observable schools: School[] = observable([
+        {id: 1, name: "IE Jesus Maestro", abbr: "IEJM", webPage: "", email: "injema@gmail.com"},
+        {id: 2, name: "Colegio Jose Barros Manotas", abbr: "JOBAMA", webPage: "", email: "jobama@gmail.com"},
     ]);
-    @observable subjects: Subject[] = [{id: 1, name: "Ciencias Sociales", hours: 4, areaId: 1}];
+    @observable teachers: Teacher[] = observable([
+        {id: 1, name: "Jose Padilla"},
+        {id: 2, name: "Luis Potte"},
+        {id: 3, name: "Diego Albor"},
+    ]);
+    @observable studyAreas: StudyArea[] = observable([
+        {id: 1, name: "Humanidades"},
+        {id: 2, name: "Ciencias"},
+        {id: 3, name: "Etica y valores"},
+    ]);
+    @observable subjects: Subject[] = observable([
+        {id: 1, name: "Ciencias Sociales", hours: 4, areaId: 1},
+        {id: 2, name: "Matematicas", hours: 6, areaId: 2},
+        {id: 3, name: "Religion", hours: 2, areaId: 3},
+    ]);
 
     @computed get isLogged(): boolean {
         return this.auth.logged;
@@ -31,7 +43,7 @@ class Store {
     }
 
     @computed get studyAreasSearchHash(): Hash<StudyArea> {
-        const result: Hash<StudyArea> = {"0": {id: 0, name: "Ninguno", bossId: 0}};
+        const result: Hash<StudyArea> = {"0": {id: 0, name: "Ninguno"}};
         this.studyAreas.forEach((area) => result[area.id.toString()] = area);
         return result;
     }
@@ -52,7 +64,6 @@ class Store {
         const areaRef = this.findArea(area.id);
         if (!areaRef) return;
         areaRef.name = area.name;
-        areaRef.bossId = area.bossId;
     };
 
     @action updateSubject = (subject: Subject) => {
@@ -63,18 +74,39 @@ class Store {
         subjectRef.areaId = subject.areaId;
     };
 
+    @action updateSchool = (school: School) => {
+        const schoolRef = this.findSchool(school.id);
+        if (!schoolRef) return;
+        schoolRef.name = school.name;
+        schoolRef.abbr = school.abbr;
+        schoolRef.webPage = school.webPage;
+        schoolRef.email = school.email;
+    };
+
     @action addStudyArea = (area: StudyArea) => {
-        area.id = Math.round(Math.random() * 100);
-        this.studyAreas.push({id: area.id, name: area.name, bossId: area.bossId});
+        area.id = Math.round(Math.random() * 10000);
+        this.studyAreas.push({id: area.id, name: area.name});
     };
 
     @action addSubject = (subject: Subject) => {
-        subject.id = Math.round(Math.random() * 100);
+        subject.id = Math.round(Math.random() * 10000);
         this.subjects.push({id: subject.id, name: subject.name, hours: subject.hours, areaId: subject.areaId});
+    };
+
+    @action addSchool = (school: School) => {
+        school.id = Math.round(Math.random() * 10000);
+        this.schools.push({
+            id: school.id,
+            name: school.name,
+            abbr: school.abbr,
+            webPage: school.abbr,
+            email: school.email
+        });
     };
 
     findArea = (id: number): StudyArea => this.studyAreas.find((area) => area.id === id);
     findSubject = (id: number): Subject => this.subjects.find((subject) => subject.id === id);
+    findSchool = (id: number): School => this.schools.find((school) => school.id === id);
 }
 
 class WithStore<P = {}, S = {}> extends Component<P & StoreProps, S> {

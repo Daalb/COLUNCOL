@@ -1,24 +1,24 @@
 import React from 'react';
 import {Route, Switch} from "react-router-dom";
+import HomePage from "../../pages/HomePage";
+import NotFoundPage from "../../pages/NotFoundPage";
 import Loadable from "react-loadable";
 import {LinearProgress} from "@material-ui/core";
 
-const LazyHomePage = Loadable({
-    loader: () => import("../../pages/HomePage"),
-    loading: () => <LinearProgress/>
+type IRoute = {
+    cname: string,
+    path: string
+};
+const LazyRoute = (item: IRoute) => Loadable({
+    loader: () => import(`../../pages/${item.cname}`),
+    loading: () => <LinearProgress/>,
 });
-const LazyNotFoundPage = Loadable({
-    loader: () => import("../../pages/NotFoundPage"),
-    loading: () => <LinearProgress/>
-});
-const LazyLoginPage = Loadable({
-    loader: () => import("../../pages/LoginPage"),
-    loading: () => <LinearProgress/>
-});
-const LazyStudyPlanPage = Loadable({
-    loader: () => import("../../pages/StudyPlanPage"),
-    loading: () => <LinearProgress/>
-});
+const routeBuilder = (item: IRoute) => <Route key={item.path} path={item.path} component={LazyRoute(item)}/>;
+const routes: IRoute[] = [
+    {cname: "LoginPage", path: "/login"},
+    {cname: "StudyPlanPage", path: "/study-plan"},
+    {cname: "SchoolsPage", path: "/schools"},
+];
 
 export default class CoreRouter extends React.Component {
     shouldComponentUpdate = (): boolean => false;
@@ -26,10 +26,9 @@ export default class CoreRouter extends React.Component {
     render = () => {
         return (
             <Switch>
-                <Route exact path={"/"} component={LazyHomePage}/>
-                <Route path={"/login"} component={LazyLoginPage}/>
-                <Route path={"/study-plan"} component={LazyStudyPlanPage}/>
-                <Route component={LazyNotFoundPage}/>
+                <Route exact path={"/"} component={HomePage}/>
+                {routes.map(routeBuilder)}
+                <Route component={NotFoundPage}/>
             </Switch>
         );
     }

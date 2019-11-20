@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76a4d036-4ae1-42d6-b475-d463e9896f5b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../php/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/CoreNavigationContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/CoreNavigationContent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/CoreRouter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/CoreRouter.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/StudyPlanPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/StudyPlanPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../php/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../php/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../php/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../php/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../php/.idea/dataSources/de28524d-4e5e-4717-89cb-7203af62d365.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../php/.idea/dataSources/de28524d-4e5e-4717-89cb-7203af62d365.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../php/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../php/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../php/api/getareas.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types.d.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -95,7 +92,7 @@
       <workItem from="1573792360878" duration="9435000" />
       <workItem from="1573960672423" duration="13797000" />
       <workItem from="1574107345626" duration="27882000" />
-      <workItem from="1574173943804" duration="12754000" />
+      <workItem from="1574173943804" duration="19373000" />
     </task>
     <servers />
   </component>
