@@ -21,7 +21,7 @@
   $close = mysqli_close($connection) 
   or die("Ha sucedido un error inexperado en la desconexion de la base de datos");
     
-  $json_string = json_encode($asignauras);
+  $json_string = json_encode($asignaturas);
   echo $json_string;
 
  ?>
