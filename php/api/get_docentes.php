@@ -1,7 +1,7 @@
 <?php
 include('configuration.php');
 
-$query = "SELECT * FROM Colegio";
+$query = "SELECT * FROM Docente";
 $result = mysqli_query($connection, $query);
 
 $docentes = array();
@@ -13,7 +13,7 @@ while ($row = mysqli_fetch_array($result)) {
     $rol = $row['rol'];
 
     $docentes[] = array('id_persona' => $id_persona, 'nivel_de_est' => $nivel_de_est,
-             'sigespecialidadlas' => $esp, 'rol' => $rol);
+             'especialidad' => $esp, 'rol' => $rol);
 }
 
 $close = mysqli_close($connection)
