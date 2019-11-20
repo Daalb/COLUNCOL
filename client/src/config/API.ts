@@ -16,7 +16,7 @@ const withQueryParams = (url: string, query_params: Hash): string => (`${url}?${
 
 const APILogout = () => cookies.remove("token", BASE_COOKIE_CONFIG);
 
-const loadAreas = async (): Promise<void> => {
+const loadAreas = async () => {
     try {
         const response = await axios.get<any[]>(url('getareas.php'));
         const data = response.data.map((i) => ({id: Number(i.id_area), name: i.nombre}));
@@ -26,7 +26,7 @@ const loadAreas = async (): Promise<void> => {
     }
 };
 
-const loadSubjects = async (): Promise<void> => {
+const loadSubjects = async () => {
     try {
         const response = await axios.get<any[]>(url('get_asignaturas.php'));
         const data = response.data.map((i) => ({
@@ -41,7 +41,7 @@ const loadSubjects = async (): Promise<void> => {
     }
 };
 
-const loadSchools = async (): Promise<void> => {
+const loadSchools = async () => {
     try {
         const response = await axios.get<any[]>(url('get_colegios.php'));
         const data = response.data.map((i) => ({
@@ -58,7 +58,7 @@ const loadSchools = async (): Promise<void> => {
     }
 };
 
-const loadSchoolRegisters = async (): Promise<void> => {
+const loadSchoolRegisters = async () => {
     try {
         const response = await axios.get<any[]>(url('get_registros_colegio.php'));
         const data = response.data.map((i) => ({
@@ -74,7 +74,7 @@ const loadSchoolRegisters = async (): Promise<void> => {
     }
 };
 
-const loadSalones = async (): Promise<void> => {
+const loadSalones = async () => {
     try {
         const response = await axios.get<any[]>(url('get_salones.php'));
         const data = response.data.map((i) => ({
@@ -88,4 +88,45 @@ const loadSalones = async (): Promise<void> => {
     }
 };
 
-export {APILogout, loadAreas, loadSubjects, loadSchools, loadSchoolRegisters, loadSalones};
+const loadPersonas = async () => {
+    try {
+        const response = await axios.get<any[]>(url('get_personas.php'));
+        const data = response.data.map((i) => ({
+            id: Number(i.id_salon),
+            name1: i.nombre_1,
+            name2: i.nombre_2,
+            lastName1: i.apellido1,
+            lastName2: i.apellido2,
+            gender: i.sexo
+        }));
+        store.persons = observable(data);
+    } catch (e) {
+        store.persons = observable([]);
+    }
+};
+
+const loadTeachers = async () => {
+    try {
+        const response = await axios.get<any[]>(url('get_docentes.php'));
+        const data = response.data.map((i) => ({
+            personId: i.id_persona,
+            stLevel: i.nivel_de_est,
+            spec: i.especialidad,
+            role: i.rol
+        }));
+        store.teachers = observable(data);
+    } catch (e) {
+        store.teachers = observable([]);
+    }
+};
+
+export {
+    APILogout,
+    loadAreas,
+    loadSubjects,
+    loadSchools,
+    loadSchoolRegisters,
+    loadSalones,
+    loadPersonas,
+    loadTeachers
+};
