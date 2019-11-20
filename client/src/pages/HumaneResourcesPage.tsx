@@ -41,16 +41,45 @@ class HumaneResourcesInternalStore {
     }
 
     private loadTeacher = (id: number) => {
-        // if (id === 0) {
-        //     this.salon.capacity = 0;
-        //     return;
-        // }
-        // const salon = this.store.findSalon(id);
-        // if (salon) {
-        //     this.salon.capacity = salon.capacity;
-        //     return;
-        // }
-        // this.salon.capacity = 0;
+        if (id === 0) {
+            this.teacher.id = 0;
+            this.teacher.name2 = "";
+            this.teacher.name1 = "";
+            this.teacher.lastName2 = "";
+            this.teacher.lastName1 = "";
+            this.teacher.gender = "O";
+            this.teacher.personId = 0;
+            this.teacher.stLevel = "";
+            this.teacher.spec = "";
+            this.teacher.role = "";
+            return;
+        }
+        const teacher = this.store.findTeacher(id);
+        console.log(teacher, "load", id)
+        if (teacher) {
+            const person = this.store.findPerson(id);
+            this.teacher.id = teacher.personId;
+            this.teacher.name2 = person.name2;
+            this.teacher.name1 = person.name1;
+            this.teacher.lastName2 = person.lastName2;
+            this.teacher.lastName1 = person.lastName1;
+            this.teacher.gender = person.gender;
+            this.teacher.personId = teacher.personId;
+            this.teacher.stLevel = teacher.stLevel;
+            this.teacher.spec = teacher.spec;
+            this.teacher.role = teacher.role;
+            return;
+        }
+        this.teacher.id = 0;
+        this.teacher.name2 = "";
+        this.teacher.name1 = "";
+        this.teacher.lastName2 = "";
+        this.teacher.lastName1 = "";
+        this.teacher.gender = "O";
+        this.teacher.personId = 0;
+        this.teacher.stLevel = "";
+        this.teacher.spec = "";
+        this.teacher.role = "";
     };
 
     private loadStudent = (id: number) => {
@@ -65,14 +94,36 @@ class HumaneResourcesInternalStore {
     }
 
     @action trigger = (id: string, value: any) => {
-        // switch (id) {
-        //     case "salonCapacity":
-        //         this.salon.capacity = Number(value);
-        //         break;
-        //     case "salonId":
-        //         this.salon.id = Number(value);
-        //         break;
-        // }
+        switch (id) {
+            case "teacherName1":
+                this.teacher.name1 = value;
+                break;
+            case "teacherName2":
+                this.teacher.name2 = value;
+                break;
+            case "teacherLastName1":
+                this.teacher.lastName1 = value;
+                break;
+            case "teacherLastName2":
+                this.teacher.lastName2 = value;
+                break;
+            case "teacherGender":
+                this.teacher.gender = value;
+                break;
+            case "teacherStLevel":
+                this.teacher.lastName2 = value;
+                break;
+            case "teacherSpec":
+                this.teacher.spec = value;
+                break;
+            case "teacherRole":
+                this.teacher.role = value;
+                break;
+            case "teacherId":
+                this.teacher.id = Number(value);
+                this.teacher.personId = Number(value);
+                break;
+        }
     };
 }
 
@@ -94,7 +145,7 @@ export default class HumaneResourcesPage extends WithStore {
 
     renderTeacher = (teacher: Teacher) => {
         const person = this.store.personSearchHash[teacher.personId.toString()];
-        const name = `${person.name1} ${person.name2} ${person.lastName1} ${person.lastName2}`;
+        const name = `${person.name1} ${person.name2 ? person.name2 + " " : ""}${person.lastName1} ${person.lastName2}`;
         return <TableRow selected={teacher.personId === this.internalStore.teacher.personId} hover
                          key={teacher.personId}
                          onClick={this.onClick} id={`teacherId_${teacher.personId}`}>
@@ -212,11 +263,86 @@ export default class HumaneResourcesPage extends WithStore {
                         <Table>
                             <TableHead>
                                 <TableRow>
-                                    <TableCell>Id</TableCell>
-                                    <TableCell>Capacidad</TableCell>
+                                    <TableCell>Nombre</TableCell>
+                                    <TableCell>Nivel acad.</TableCell>
+                                    <TableCell>Especialidad</TableCell>
+                                    <TableCell>Rol</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>{this.renderTeachers()}</TableBody>
+                        </Table>
+                    </Paper>
+                </Grid>
+                <Grid item xs={12}><Divider/></Grid>
+
+
+                <Grid item xs={12}>
+                    <Grid container justify={"space-between"} alignItems={"center"}>
+                        <Grid item>
+                            <PureTypography variant={"h4"}>Estudiantes</PureTypography>
+                        </Grid>
+                        <Grid item>
+                            <PureButton id={"studentId_0"} disabled={this.internalStore.inNewStudentMode}
+                                        color={"primary"}
+                                        onClick={this.onClick}>nuevo</PureButton>
+                        </Grid>
+                    </Grid>
+                    <br/>
+                </Grid>
+                <Grid item xs={12}>
+                    <Grid container spacing={3}>
+                        <Grid item xs={12} md={6}>
+                            <PureTextField fullWidth variant={"outlined"} id={"studentName1"}
+                                           label={"Primer nombre *"} value={this.internalStore.teacher.name1}
+                                           onChange={this.onChange} helperText={"obligatorio"}/>
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                            <PureTextField fullWidth variant={"outlined"} id={"studentName2"}
+                                           label={"Segundo nombre"} value={this.internalStore.teacher.name2}
+                                           onChange={this.onChange}/>
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                            <PureTextField fullWidth variant={"outlined"} id={"studentLastName1"}
+                                           label={"Primer apellido *"} value={this.internalStore.teacher.lastName1}
+                                           onChange={this.onChange} helperText={"obligatorio"}/>
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                            <PureTextField fullWidth variant={"outlined"} id={"studentLastName2"}
+                                           label={"Segundo apellido *"} value={this.internalStore.teacher.lastName2}
+                                           onChange={this.onChange} helperText={"obligatorio"}/>
+                        </Grid>
+                        <Grid item xs={12} md={4}>
+                            <PureTextField fullWidth variant={"outlined"} id={"teacherGender"} select
+                                           SelectProps={{native: true}} label={"Genero *"}
+                                           value={this.internalStore.teacher.gender} onChange={this.onChange}
+                                           helperText={"obligatorio"}>
+                                <option value="M">Masculino</option>
+                                <option value="F">Femenino</option>
+                                <option value="O">Otro</option>
+                            </PureTextField>
+                        </Grid>
+                        <Grid item xs={12} md={8}>
+                            <PureTextField fullWidth variant={"outlined"} id={"studentBornDate"}
+                                           label={"Fecha de nacimiento (YYYY-mm-dd) *"}
+                                           value={this.internalStore.teacher.spec}
+                                           onChange={this.onChange} helperText={"obligatorio"}/>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <PureButton variant={"contained"} color={"primary"}
+                                        onClick={this.onTeacherSave}>guardar</PureButton>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid item xs={12}>
+                    <Paper>
+                        <Table>
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>Nombre</TableCell>
+                                    <TableCell>Fecha de nacimiento</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>{this.renderStudents()}</TableBody>
                         </Table>
                     </Paper>
                 </Grid>

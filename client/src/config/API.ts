@@ -109,7 +109,7 @@ const loadTeachers = async () => {
     try {
         const response = await axios.get<any[]>(url('get_docentes.php'));
         const data = response.data.map((i) => ({
-            personId: i.id_persona,
+            personId: Number(i.id_persona),
             stLevel: i.nivel_de_est,
             spec: i.especialidad,
             role: i.rol
