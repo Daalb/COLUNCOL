@@ -5,8 +5,9 @@ import {StoreProps, StoreType} from "../store";
 class Store {
     @observable auth: AuthInfo = {
         logged: true,
-        username: "ADMIN",
-        admin: false
+        username: "IE Jesus Maestro",
+        admin: false,
+        schoolId: 1
     };
     @observable schools: School[] = observable([]);
     @observable teachers: Teacher[] = observable([
@@ -17,6 +18,7 @@ class Store {
     @observable studyAreas: StudyArea[] = observable([]);
     @observable subjects: Subject[] = observable([]);
     @observable schoolRegisters: SchoolRegister[] = observable([]);
+    @observable salones: Salon[] = observable([]);
 
     @computed get isLogged(): boolean {
         return this.auth.logged;
@@ -24,6 +26,10 @@ class Store {
 
     @computed get isUnlogged(): boolean {
         return !this.auth.logged;
+    }
+
+    @computed get misSalones(): Salon[] {
+        return this.salones.filter((salon) => salon.schoolId === this.auth.schoolId);
     }
 
     @computed get teachersSearchHash(): Hash<Teacher> {
@@ -51,10 +57,14 @@ class Store {
     }
 
     @action login = (username: string) => {
-        this.auth = {username, logged: true, admin: true};
+        if (username.toLowerCase() === 'admin') this.auth = {username: 'ADMIN', logged: true, admin: true, schoolId: 0};
+        else {
+            const school = this.findSchool(Number(username));
+            this.auth = {username: school.name, logged: true, admin: false, schoolId: school.id};
+        }
     };
 
-    @action logout = () => this.auth = {username: "", logged: false, admin: false};
+    @action logout = () => this.auth = {username: "", logged: false, admin: false, schoolId: 0};
 
     @action updateStudyArea = (area: StudyArea) => {
         const areaRef = this.findArea(area.id);
@@ -79,6 +89,12 @@ class Store {
         schoolRef.email = school.email;
     };
 
+    @action updateSalon = (salon: Salon) => {
+        const salonRef = this.findSalon(salon.id);
+        if (!salonRef) return;
+        salonRef.capacity = salon.capacity;
+    };
+
     @action addStudyArea = (area: StudyArea) => {
         area.id = Math.round(Math.random() * 10000);
         this.studyAreas.push({id: area.id, name: area.name});
@@ -101,9 +117,15 @@ class Store {
         });
     };
 
+    @action addSalon = (salon: Salon) => {
+        salon.id = Math.round(Math.random() * 10000);
+        this.salones.push({id: salon.id, capacity: salon.capacity, schoolId: this.auth.schoolId});
+    };
+
     findArea = (id: number): StudyArea => this.studyAreas.find((area) => area.id === id);
     findSubject = (id: number): Subject => this.subjects.find((subject) => subject.id === id);
     findSchool = (id: number): School => this.schools.find((school) => school.id === id);
+    findSalon = (id: number): Salon => this.salones.find((salon) => salon.id === id);
 }
 
 class WithStore<P = {}, S = {}> extends Component<P & StoreProps, S> {

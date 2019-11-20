@@ -18,6 +18,7 @@ const routes: IRoute[] = [
     {cname: "LoginPage", path: "/login"},
     {cname: "StudyPlanPage", path: "/study-plan"},
     {cname: "SchoolsPage", path: "/schools"},
+    {cname: "PhysicalResourcesPage", path: "/p-resources"},
 ];
 
 export default class CoreRouter extends React.Component {

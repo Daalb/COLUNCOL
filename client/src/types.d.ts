@@ -2,7 +2,13 @@ type Hash<T = any> = { [x: string]: T };
 type AuthInfo = {
     logged: boolean,
     username: string,
-    admin: boolean
+    admin: boolean,
+    schoolId: number
+};
+type Salon = {
+    id: number,
+    capacity: number,
+    schoolId: number
 };
 type School = {
     id: number,
