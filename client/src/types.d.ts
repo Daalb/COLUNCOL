@@ -4,14 +4,20 @@ type AuthInfo = {
     username: string,
     admin: boolean
 };
+type School = {
+    id: number,
+    name: string,
+    abbr: string,
+    webPage: string,
+    email: string
+};
 type Teacher = {
     id: number,
     name: string,
 };
 type StudyArea = {
     id: number,
-    name: string,
-    bossId: number
+    name: string
 };
 type Subject = {
     id: number,

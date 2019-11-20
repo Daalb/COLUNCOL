@@ -9,30 +9,27 @@ import {StoreType} from "../store";
 import CoreFabNavigator from "../components/core/CoreFabNavigator";
 
 class StudyPlanInternalStore {
-    @observable area: StudyArea = {id: 0, name: "", bossId: 0};
+    @observable area: StudyArea = {id: 0, name: ""};
     @observable subject: Subject = {id: 0, name: "", hours: 2, areaId: 1};
     private readonly store: StoreType;
 
     constructor(store: StoreType) {
+        this.store = store;
         reaction(() => this.area.id, this.loadArea);
         reaction(() => this.subject.id, this.loadSubject);
-        this.store = store;
     }
 
     private loadArea = (id: number) => {
         if (id === 0) {
             this.area.name = "";
-            this.area.bossId = 0;
             return;
         }
         const area = this.store.findArea(id);
         if (area) {
             this.area.name = area.name;
-            this.area.bossId = area.bossId;
             return;
         }
         this.area.name = "";
-        this.area.bossId = 0;
     };
 
     private loadSubject = (id: number) => {
@@ -73,17 +70,14 @@ class StudyPlanInternalStore {
             case "subjectHours":
                 this.subject.hours = Number(value);
                 break;
-            case "areaBossId":
-                this.area.bossId = Number(value);
+            case "subjectAreaId":
+                this.subject.areaId = Number(value);
                 break;
             case "areaId":
                 this.area.id = Number(value);
                 break;
             case "subjectId":
                 this.subject.id = Number(value);
-                break;
-            case "subjectAreaId":
-                this.subject.areaId = Number(value);
                 break;
         }
     };
@@ -113,7 +107,6 @@ export default class StudyPlanPage extends WithStore {
         <TableRow selected={area.id === this.internalStore.area.id} hover key={area.id} onClick={this.onClick}
                   id={`areaId_${area.id}`}>
             <TableCell>{area.name}</TableCell>
-            <TableCell>{this.store.teachersSearchHash[area.bossId.toString()].name}</TableCell>
         </TableRow>;
 
     renderSubject = (subject: Subject) =>
@@ -125,7 +118,7 @@ export default class StudyPlanPage extends WithStore {
         </TableRow>;
 
     renderAreas = () => this.store.studyAreas.map(this.renderArea);
-    
+
     renderSubjects = () => this.store.subjects.map(this.renderSubject);
 
     onAreaSave = () => {
@@ -148,7 +141,7 @@ export default class StudyPlanPage extends WithStore {
         return (
             <Grid container spacing={3}>
                 <CoreFabNavigator data={this.fastNavItems}/>
-                <Grid item xs={12} id={"areas"}>
+                <Grid item xs={12}>
                     <Grid container justify={"space-between"} alignItems={"center"}>
                         <Grid item>
                             <PureTypography variant={"h4"}>Areas de estudio</PureTypography>
@@ -162,32 +155,14 @@ export default class StudyPlanPage extends WithStore {
                 </Grid>
                 <Grid item xs={12}>
                     <Grid container spacing={3}>
-                        <Grid item xs={12} sm={7}>
+                        <Grid item xs={12}>
                             <PureTextField fullWidth variant={"outlined"} id={"areaName"} label={"Nombre de area *"}
                                            value={this.internalStore.area.name} onChange={this.onChange}
                                            helperText={"obligatorio"}/>
                         </Grid>
-                        <Grid item xs={12} sm={5}>
-                            <PureTextField fullWidth variant={"outlined"} id={"areaBossId"} label={"Nombre del jefe"}
-                                           value={this.internalStore.area.bossId} onChange={this.onChange} select
-                                           SelectProps={{native: true}}>
-                                <option value={0}>Ninguno</option>
-                                {
-                                    this.store.teachers.map(area => (
-                                        <option key={area.id} value={area.id}>
-                                            {area.name}
-                                        </option>
-                                    ))
-                                }
-                            </PureTextField>
-                        </Grid>
                         <Grid item xs={12}>
-                            <Grid container spacing={1}>
-                                <Grid item>
-                                    <PureButton variant={"contained"} color={"primary"}
-                                                onClick={this.onAreaSave}>guardar</PureButton>
-                                </Grid>
-                            </Grid>
+                            <PureButton variant={"contained"} color={"primary"}
+                                        onClick={this.onAreaSave}>guardar</PureButton>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -197,7 +172,6 @@ export default class StudyPlanPage extends WithStore {
                             <TableHead>
                                 <TableRow>
                                     <TableCell>Nombre</TableCell>
-                                    <TableCell>Jefe</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>{this.renderAreas()}</TableBody>
