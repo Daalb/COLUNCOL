@@ -79,7 +79,6 @@ CREATE TABLE Docente (
   id_persona INT NOT NULL,
   nivel_de_est VARCHAR(45) NOT NULL,
   especialidad VARCHAR(45) NULL,
-  rol VARCHAR(45) NULL,
   PRIMARY KEY (id_persona),
   FOREIGN KEY (id_persona) REFERENCES Empleado (id_persona)
   ) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
@@ -247,7 +246,8 @@ CREATE TABLE Acudiente(
     ocupacion VARCHAR(45) NOT NULL,
     parentesco VARCHAR(30) NOT NULL,
     PRIMARY KEY (id_persona),
-	FOREIGN KEY (id_persona) REFERENCES Persona (id_persona)
+	FOREIGN KEY (id_persona)
+REFERENCES Persona (id_persona)
 )ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
 
 CREATE TABLE Tel_Acudiente(
