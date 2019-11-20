@@ -14,7 +14,7 @@
       $horas=$row['Horas'];
       $area=$row['id_area'];
 
-      $asignauras[] = array('id_asignatura'=> $id, 'nombre'=> $nombre, 'Horas'=> $horas, 'id_area'=> $area);
+      $asignaturas[] = array('id_asignatura'=> $id, 'nombre'=> $nombre, 'Horas'=> $horas, 'id_area'=> $area);
 
   }
 

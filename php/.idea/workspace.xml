@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29832acb-f01b-47f4-afd8-f0bb572ad020" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/de28524d-4e5e-4717-89cb-7203af62d365.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/de28524d-4e5e-4717-89cb-7203af62d365/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/get_asignaturas.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/get_asignaturas.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +104,7 @@
       <workItem from="1573757004250" duration="2743000" />
       <workItem from="1573797652193" duration="604000" />
       <workItem from="1574206703109" duration="1636000" />
-      <workItem from="1574217410521" duration="3562000" />
+      <workItem from="1574217410521" duration="4288000" />
     </task>
     <servers />
   </component>
