@@ -40,8 +40,8 @@ DROP TABLE Cuenta_Bancaria;
 DROP TABLE Persona;
 DROP TABLE Telefono_Sede ;
 DROP TABLE Sede ;
-DROP TABLE Colegio;
 DROP TABLE Registro_Colegio;
+DROP TABLE Colegio;
 
 
 

@@ -1,7 +1,7 @@
 <?php
 include('configuration.php');
 
-$query = "SELECT * FROM Bolques_Educativos";
+$query = "SELECT * FROM Bloques_Educativo";
 $result = mysqli_query($connection, $query);
 
 $Bloques_Educativos = array();
