@@ -29,12 +29,11 @@ CREATE TABLE Sede (
   num_sede INT NOT NULL,
   ubcación_geo VARCHAR(45),
   PRIMARY KEY (id_colegio, num_sede),
-  FOREIGN KEY (id_colegio) REFERENCES Colegio (id_colegio),
-  UNIQUE INDEX num_sede_UNIQUE (num_sede ASC)
+  FOREIGN KEY (id_colegio) REFERENCES Colegio (id_colegio)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 
 CREATE TABLE Telefono_Sede (
-  id_telefono INT NOT NULL,
+  id_telefono INT AUTO_INCREMENT,
   num_telofono INT(10) NOT NULL,
   tipo VARCHAR(45) NOT NULL,
   id_colegio INT NOT NULL,
@@ -249,7 +248,7 @@ CREATE TABLE Acudiente(
 )ENGINE = InnoDB DEFAULT CHARACTER SET =latin1;
 
 CREATE TABLE Tel_Acudiente(
-	id_tel INT NOT NULL,
+	id_tel INT AUTO_INCREMENT,
     num_tel INT(10),
     tipo VARCHAR(30),
     vigencia VARCHAR(2),
@@ -397,7 +396,7 @@ CREATE TABLE Planilla_Nota(
 
 
 CREATE TABLE Historico_Nota(
-	id_persona_estudiante INT NOT NULL,
+	id_persona_estudiante INT AUTO_INCREMENT,
     id_colegio INT NOT NULL,
     id_curso INT NOT NULL,
     id_asignatura INT NOT NULL,
