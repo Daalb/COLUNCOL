@@ -4,11 +4,12 @@ import {inject, observer} from "mobx-react";
 import {action, computed, observable, reaction} from "mobx";
 import {Redirect} from "react-router";
 import {Divider, Grid, Paper, Table, TableBody, TableCell, TableHead, TableRow} from "@material-ui/core";
+import {School} from "@material-ui/icons";
 import {PureButton, PureTextField, PureTypography} from "../components/pure";
 import {StoreType} from "../store";
 
 class SchoolsInternalStore {
-    @observable school: School = {id: 0, name: "", abbr: "", email: "", webPage: ""};
+    @observable school: School = {id: 0, name: "", abbr: "", email: "", webPage: "", regId: 0};
     private readonly store: StoreType;
 
     constructor(store: StoreType) {
@@ -22,6 +23,7 @@ class SchoolsInternalStore {
             this.school.abbr = "";
             this.school.webPage = "";
             this.school.email = "";
+            this.school.regId = 0;
             return;
         }
         const school = this.store.findSchool(id);
@@ -30,16 +32,22 @@ class SchoolsInternalStore {
             this.school.abbr = school.abbr;
             this.school.webPage = school.webPage;
             this.school.email = school.email;
+            this.school.regId = school.regId;
             return;
         }
         this.school.name = "";
         this.school.abbr = "";
         this.school.webPage = "";
         this.school.email = "";
+        this.school.regId = 0;
     };
 
     @computed get inNewSchoolMode(): boolean {
         return this.school.id === 0;
+    }
+
+    @computed get register(): SchoolRegister {
+        return this.store.schoolRegisterSearchHash[this.school.regId.toString()];
     }
 
     @action trigger = (id: string, value: any) => {
@@ -138,8 +146,15 @@ export default class SchoolsPage extends WithStore {
                                            value={this.internalStore.school.webPage} onChange={this.onChange}/>
                         </Grid>
                         <Grid item xs={12}>
-                            <PureButton variant={"contained"} color={"primary"}
-                                        onClick={this.onSchoolSave}>guardar</PureButton>
+                            <Grid container justify={"space-between"}>
+                                <Grid item>
+                                    <PureButton variant={"contained"} color={"primary"}
+                                                onClick={this.onSchoolSave}>guardar</PureButton>
+                                </Grid>
+                                <Grid item>
+                                    <PureTypography>{this.internalStore.register ? this.internalStore.register.dateF : ""}</PureTypography>
+                                </Grid>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Grid>

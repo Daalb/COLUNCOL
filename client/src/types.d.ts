@@ -9,7 +9,8 @@ type School = {
     name: string,
     abbr: string,
     webPage: string,
-    email: string
+    email: string,
+    regId: number
 };
 type Teacher = {
     id: number,
@@ -25,6 +26,13 @@ type Subject = {
     hours: number,
     areaId: number
 }
+type SchoolRegister = {
+    id: number,
+    state: string,
+    dateA: Date,
+    dateF: Date,
+    renov: string
+};
 type FastNavItem = {
     color: any,
     label: string,

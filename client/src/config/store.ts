@@ -5,13 +5,10 @@ import {StoreProps, StoreType} from "../store";
 class Store {
     @observable auth: AuthInfo = {
         logged: true,
-        username: "IE Jesus Maestro",
+        username: "ADMIN",
         admin: false
     };
-    @observable schools: School[] = observable([
-        {id: 1, name: "IE Jesus Maestro", abbr: "IEJM", webPage: "", email: "injema@gmail.com"},
-        {id: 2, name: "Colegio Jose Barros Manotas", abbr: "JOBAMA", webPage: "", email: "jobama@gmail.com"},
-    ]);
+    @observable schools: School[] = observable([]);
     @observable teachers: Teacher[] = observable([
         {id: 1, name: "Jose Padilla"},
         {id: 2, name: "Luis Potte"},
@@ -19,6 +16,7 @@ class Store {
     ]);
     @observable studyAreas: StudyArea[] = observable([]);
     @observable subjects: Subject[] = observable([]);
+    @observable schoolRegisters: SchoolRegister[] = observable([]);
 
     @computed get isLogged(): boolean {
         return this.auth.logged;
@@ -43,6 +41,12 @@ class Store {
     @computed get subjectsSearchHash(): Hash<Subject> {
         const result: Hash<Subject> = {"0": {id: 0, name: "No existe", areaId: 1, hours: 0}};
         this.subjects.forEach((subject) => result[subject.id.toString()] = subject);
+        return result;
+    }
+
+    @computed get schoolRegisterSearchHash(): Hash<SchoolRegister> {
+        const result: Hash<SchoolRegister> = {};
+        this.schoolRegisters.forEach((reg) => result[reg.id.toString()] = reg);
         return result;
     }
 
@@ -92,7 +96,8 @@ class Store {
             name: school.name,
             abbr: school.abbr,
             webPage: school.abbr,
-            email: school.email
+            email: school.email,
+            regId: 0
         });
     };
 

@@ -19,7 +19,7 @@ const APILogout = () => cookies.remove("token", BASE_COOKIE_CONFIG);
 const loadAreas = async (): Promise<void> => {
     try {
         const response = await axios.get<any[]>(url('getareas.php'));
-        const data = response.data.map((i) => ({id: i.id_area, name: i.nombre}));
+        const data = response.data.map((i) => ({id: Number(i.id_area), name: i.nombre}));
         store.studyAreas = observable(data);
     } catch (e) {
         store.studyAreas = observable([]);
@@ -30,10 +30,10 @@ const loadSubjects = async (): Promise<void> => {
     try {
         const response = await axios.get<any[]>(url('get_asignaturas.php'));
         const data = response.data.map((i) => ({
-            id: i.id_asignatura,
+            id: Number(i.id_asignatura),
             name: i.nombre,
-            hours: i.Horas,
-            areaId: i.id_area
+            hours: Number(i.Horas),
+            areaId: Number(i.id_area)
         }));
         store.subjects = observable(data);
     } catch (e) {
@@ -41,4 +41,37 @@ const loadSubjects = async (): Promise<void> => {
     }
 };
 
-export {APILogout, loadAreas, loadSubjects};
+const loadSchools = async (): Promise<void> => {
+    try {
+        const response = await axios.get<any[]>(url('get_colegios.php'));
+        const data = response.data.map((i) => ({
+            id: Number(i.id_colegio),
+            name: i.nombre,
+            abbr: i.siglas,
+            webPage: i.pag_web,
+            email: i.correo,
+            regId: Number(i.id_registro)
+        }));
+        store.schools = observable(data);
+    } catch (e) {
+        store.schools = observable([]);
+    }
+};
+
+const loadSchoolRegisters = async (): Promise<void> => {
+    try {
+        const response = await axios.get<any[]>(url('get_registros_colegio.php'));
+        const data = response.data.map((i) => ({
+            id: Number(i.id_registro),
+            state: i.estado,
+            dateA: i.fecha_asig,
+            dateF: i.fecha_fin,
+            renov: i.renov,
+        }));
+        store.schoolRegisters = observable(data);
+    } catch (e) {
+        store.schoolRegisters = observable([]);
+    }
+};
+
+export {APILogout, loadAreas, loadSubjects, loadSchools, loadSchoolRegisters};

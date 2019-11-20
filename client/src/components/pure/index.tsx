@@ -1,8 +1,10 @@
 import React from "react";
-import {Button, TextField, Typography} from "@material-ui/core";
+import {Button, IconButton, TextField, Typography} from "@material-ui/core";
 import {ButtonProps} from "@material-ui/core/Button";
 import {TextFieldProps} from "@material-ui/core/TextField";
 import {TypographyProps} from "@material-ui/core/Typography";
+import {IconButtonProps} from "@material-ui/core/IconButton";
+import {KeyboardDatePicker, KeyboardDatePickerProps} from "@material-ui/pickers";
 
 type Hash = { [x: string]: any };
 
@@ -21,4 +23,9 @@ class PureTextField extends React.Component<TextFieldProps> {
     render = () => <TextField {...this.props} />;
 }
 
-export {PureButton, PureTextField, PureTypography};
+class PureIconButton extends React.Component<IconButtonProps> {
+    shouldComponentUpdate = (): boolean => false;
+    render = () => <IconButton {...this.props}/>;
+}
+
+export {PureButton, PureTextField, PureTypography, PureIconButton};

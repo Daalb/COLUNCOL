@@ -7,10 +7,6 @@
       <change beforePath="$PROJECT_DIR$/../client/src/config/API.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/config/API.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/src/config/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/config/store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/get_asignaturas.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/get_asignaturas.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/get_colegios.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/get_colegios.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/get_personas.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/get_personas.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/getareas.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/getareas.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,6 +46,13 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="COLUNCOL: schema" type="76f4a085:MysqlImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="COLUNCOL@192.168.99.101" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="COLUNCOL: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="Registro_Colegio: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -58,7 +61,9 @@
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProjectId" id="1TcQe1a71hEmOSoM1ALMCtWgkua" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -111,7 +116,7 @@
       <workItem from="1573757004250" duration="2743000" />
       <workItem from="1573797652193" duration="604000" />
       <workItem from="1574206703109" duration="1636000" />
-      <workItem from="1574217410521" duration="5226000" />
+      <workItem from="1574217410521" duration="10181000" />
     </task>
     <servers />
   </component>
