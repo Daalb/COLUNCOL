@@ -22,7 +22,7 @@ INSERT INTO Persona VALUES(1001251251,'Lilibeth',NULL,'Ruiz','Ponce','F');
 INSERT INTO Persona VALUES(1001802490,'Eliana',NULL,'Parra','Sanchez','F');
 INSERT INTO Persona VALUES(1001557554,'Natalia',NULL,'Guevara','Potes','F');
 INSERT INTO Persona VALUES(1001009570,'Elvia',NULL,'Morelo','Morales','F');
-INSERT INTO Persona VALUES(2278173639,'Nigel',NULL,'Davila','Acuña','M');
+INSERT INTO Persona VALUES(1278173639,'Nigel',NULL,'Davila','Acuña','M');
 INSERT INTO Persona VALUES(1082525609,'Kevin',NULL,'Ruz','Nuñez','M');
 INSERT INTO Persona VALUES(1002038900,'Gabriel',NULL,'Gomez','Suarez','M');
 INSERT INTO Persona VALUES(1001092012,'Valentina',NULL,'Tatis','Solano','F');

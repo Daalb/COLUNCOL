@@ -1,10 +1,28 @@
 <?php
   include('configuration.php');
+  header('Content-Type: application/json');
 
   $query = "SELECT * FROM Asignatura";
   $result = mysqli_query($connection,$query);
-  header('Content-Type: application/json');
-  echo json_encode($result);
 
-  mysqli_close($connection);
+  $asignaturas = array();
+
+  while($row = mysqli_fetch_array($result)) 
+  { 
+      $id=$row['id_asignatura'];
+      $nombre=$row['nombre'];
+      $horas=$row['Horas'];
+      $area=$row['id_area'];
+
+      $asignauras[] = array('id_asignatura'=> $id, 'nombre'=> $nombre, 'Horas'=> $horas, 'id_area'=> $area);
+
+  }
+
+  $close = mysqli_close($conexion) 
+  or die("Ha sucedido un error inexperado en la desconexion de la base de datos");
+    
+  $json_string = json_encode($asignauras);
+  echo $json_string;
+
+
  ?>
